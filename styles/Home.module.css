@@ -16,8 +16,8 @@
   align-items: center;
 }
 
-@media screen and (max-width: 786px) {
+/* @media screen and (max-width: 786px) {
   .main {
     margin-top: 80px;
   }
-}
+} */

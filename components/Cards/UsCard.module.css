@@ -19,9 +19,9 @@
 }
 .us .img iframe {
     width: 100%;
-    height: -moz-available;
     height: -webkit-fill-available;
-    max-height: 350px;
+    height: -moz-available;
+    max-height: 300px;
 }
 .us h3 {
     font-size: 1.5rem;
