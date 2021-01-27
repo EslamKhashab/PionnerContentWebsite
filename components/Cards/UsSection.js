@@ -33,6 +33,7 @@ const UsCard = ({lang, flag}) => {
     }, [flag]);
     useEffect(() => {
         data && data.isVideo ? document.querySelector('#video').innerHTML = data.videoLink : ''
+        data && data.isVideo ? document.querySelector('#mobvideo').innerHTML = data.videoLink : ''
     }, [data]);
 
     if (data) {
@@ -66,7 +67,7 @@ const UsCard = ({lang, flag}) => {
                     <section className={Styles.us}>
                         <div className={`${Styles.content} ${lang == 'en' ? Styles.en : ''}`}>
                             <h3>{data.title}</h3>
-                            <div className={Styles.img} id="video">
+                            <div className={Styles.img} id="mobvideo">
                                 {
                                     data.isVideo ? ''
                                         :
