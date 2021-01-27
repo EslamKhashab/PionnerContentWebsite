@@ -20,7 +20,7 @@ const HomeRealState2 = ({lang, flag}) => {
       if (window.localStorage.getItem('commercialList') != null && !flag) {
         setnonRes(JSON.parse(window.localStorage.getItem('commercialList')))
       } else {
-        const nonResReq = await fetch('https://swagger.city-edge-developments.com/api/Home/ListFilterType?IsCommercial=true', {
+        const nonResReq = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/ListFilterType?IsCommercial=true', {
           method: "get",
           headers: {
             'LanguageCode': lang == 'ar' ? 'ar' : 'en'
@@ -38,7 +38,7 @@ const HomeRealState2 = ({lang, flag}) => {
 
     nonRes.length && setShowcase(nonRes[0].name)
     nonRes && nonRes.map(item => {
-      let link = 'https://swagger.city-edge-developments.com/api/Home/ListHomeProjects/' + item.id + '?IsCommercial=true';
+      let link = 'https://swagger.pioneer.city-edge-developments.com/api/Home/ListHomeProjects/' + item.id + '?IsCommercial=true';
       let listItem = fetch(link, {
         method: "get",
         headers: {

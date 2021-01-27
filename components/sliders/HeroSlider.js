@@ -20,7 +20,7 @@ const HeroSlider = ({lang, flag}) => {
             if (window.localStorage.getItem('ListSliders') != null && !flag) {
                 setdata(JSON.parse(window.localStorage.getItem('ListSliders')))
             } else {
-                const ListSliders = await fetch('https://swagger.city-edge-developments.com/api/Slider/ListSliders', {
+                const ListSliders = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Slider/ListSliders', {
                     method: "get",
                     headers: {
                         'LanguageCode': lang == 'ar' ? 'ar' : 'en'

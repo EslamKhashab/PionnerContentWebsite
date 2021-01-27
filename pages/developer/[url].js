@@ -19,7 +19,7 @@ const Developer = ({lang}) => {
     useEffect(() => {
         if (url) {
             async function loadData() {
-                let link = "https://swagger.city-edge-developments.com/api/Developer/GetDeveloper/" + url;
+                let link = "https://swagger.pioneer.city-edge-developments.com/api/Developer/GetDeveloper/" + url;
                 const DeveloperDestails = await fetch(link, {
                     method: "get",
                     headers: {

@@ -16,7 +16,7 @@ const UsCard = ({lang, flag}) => {
             if (window.localStorage.getItem('usdata') != null && !flag) {
                 setdata(JSON.parse(window.localStorage.getItem('usdata')))
             } else {
-                const us = await fetch('https://swagger.city-edge-developments.com/api/Home/GetVideoSection', {
+                const us = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/GetVideoSection', {
                     method: "get",
                     headers: {
                         'LanguageCode': lang == 'ar' ? 'ar' : 'en'

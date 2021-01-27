@@ -15,7 +15,7 @@ export default function HomeBlogs({lang, flag}) {
       if (window.localStorage.getItem('listBlogHome') != null && !flag) {
         setdata(JSON.parse(window.localStorage.getItem('listBlogHome')))
       } else {
-        const listBlogHome = await fetch('https://swagger.city-edge-developments.com/api/Home/ListHomeBlogs', {
+        const listBlogHome = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/ListHomeBlogs', {
           method: "get",
           headers: {
             'LanguageCode': lang == 'ar' ? 'ar' : 'en'

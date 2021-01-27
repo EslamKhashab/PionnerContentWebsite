@@ -16,7 +16,7 @@ const ProjectsListing = ({ lang }) => {
         if (name) {
             async function loadData() {
                 const id = window.localStorage.getItem(`${name}-${propertyUrl}`);
-                let link = 'https://swagger.city-edge-developments.com/api/Project/ListProject?CityId=' + id + '&PropertyTypeUrl=' + propertyUrl;
+                let link = 'https://swagger.pioneer.city-edge-developments.com/api/Project/ListProject?CityId=' + id + '&PropertyTypeUrl=' + propertyUrl;
                 const listProjects = await fetch(link, {
                     method: "POST",
                     headers: {

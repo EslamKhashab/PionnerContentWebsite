@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
       if (window.localStorage.getItem('NavDataList') != null && !flag) {
         setnavData(JSON.parse(window.localStorage.getItem('NavDataList')))
       } else {
-        const NavDataList = await fetch('https://swagger.city-edge-developments.com/api/Home/ListNavbar', {
+        const NavDataList = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/ListNavbar', {
           method: "get",
           headers: {
             'LanguageCode': lang == 'ar' ? 'ar' : 'en'
@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }) {
       if (window.localStorage.getItem('LogoIcon') != null && !flag) {
         setMylogo(JSON.parse(window.localStorage.getItem('LogoIcon')))
       } else {
-        const LogoIcon = await fetch('https://swagger.city-edge-developments.com/api/Home/GetLogo', {
+        const LogoIcon = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/GetLogo', {
           method: "get",
           headers: {
             'LanguageCode': lang == 'ar' ? 'ar' : 'en'
@@ -89,7 +89,7 @@ function MyApp({ Component, pageProps }) {
       if (window.localStorage.getItem('contactData') != null && !flag) {
         setcontact(JSON.parse(window.localStorage.getItem('contactData')))
       } else {
-        const contactData = await fetch('https://swagger.city-edge-developments.com/api/Home/GetHomeContact', {
+        const contactData = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/GetHomeContact', {
           method: "get",
           headers: {
             'LanguageCode': lang == 'ar' ? 'ar' : 'en'
@@ -111,7 +111,7 @@ function MyApp({ Component, pageProps }) {
       if (window.localStorage.getItem('socialData') != null && !flag) {
         setsocial(JSON.parse(window.localStorage.getItem('socialData')))
       } else {
-        const socialData = await fetch('https://swagger.city-edge-developments.com/api/Home/ListSocailMedia', {
+        const socialData = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/ListSocailMedia', {
           method: "get",
           headers: {
             'LanguageCode': lang == 'ar' ? 'ar' : 'en'
@@ -133,7 +133,7 @@ function MyApp({ Component, pageProps }) {
       if (window.localStorage.getItem('footerLinks') != null && !flag) {
         setlistfooterLinks(JSON.parse(window.localStorage.getItem('footerLinks')))
       } else {
-        const footerLinks = await fetch('https://swagger.city-edge-developments.com/api/Home/ListFooterLinks', {
+        const footerLinks = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/ListFooterLinks', {
           method: "get",
           headers: {
             'LanguageCode': lang == 'ar' ? 'ar' : 'en'
@@ -155,7 +155,7 @@ function MyApp({ Component, pageProps }) {
       if (window.localStorage.getItem('usFooter') != null && !flag) {
         setfooterUsObj(JSON.parse(window.localStorage.getItem('usFooter')))
       } else {
-        const footerUs = await fetch('https://swagger.city-edge-developments.com/api/Home/GetAboutUsFooter', {
+        const footerUs = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/GetAboutUsFooter', {
           method: "get",
           headers: {
             'LanguageCode': lang == 'ar' ? 'ar' : 'en'

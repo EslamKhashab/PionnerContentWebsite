@@ -16,7 +16,7 @@ const HomeProRealState = ({lang, flag}) => {
       if (window.localStorage.getItem('ListMostPopularCities') != null && !flag) {
         setdata(JSON.parse(window.localStorage.getItem('ListMostPopularCities')))
       } else {
-        const ListMostPopularCities = await fetch('https://swagger.city-edge-developments.com/api/Home/ListMostPopularCities', {
+        const ListMostPopularCities = await fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/ListMostPopularCities', {
           method: "get",
           headers: {
             'LanguageCode': lang == 'ar' ? 'ar' : 'en'

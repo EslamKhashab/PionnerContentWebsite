@@ -44,7 +44,7 @@ const Home = ({lang, flag}) => {
 }
 
 // export async function getServerSideProps(context) {
-//   const res = await fetch(`https://swagger.city-edge-developments.com/api/Slider/ListSliders`)
+//   const res = await fetch(`https://swagger.pioneer.city-edge-developments.com/api/Slider/ListSliders`)
 //   const data = await res.json()
 
 //   return {

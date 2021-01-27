@@ -24,7 +24,7 @@ const Chat = ({ callOpen, lang }) => {
                 // if (email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) && email.contains(".")) {
                 if (email.match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
                     if (message != '') {
-                        fetch('https://swagger.city-edge-developments.com/api/Home/ContactUsForm', {
+                        fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/ContactUsForm', {
                             method: 'POST',
                             body:
                                 JSON.stringify({

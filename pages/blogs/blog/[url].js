@@ -30,7 +30,7 @@ const Blog = ({ lang }) => {
             if (phone.match(/^\d+$/) && phone.length > 10) {
                 if (email.match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
                     if (message != '') {
-                        fetch('https://swagger.city-edge-developments.com/api/Home/ContactUsForm', {
+                        fetch('https://swagger.pioneer.city-edge-developments.com/api/Home/ContactUsForm', {
                             method: 'POST',
                             body:
                                 JSON.stringify({
@@ -112,7 +112,7 @@ const Blog = ({ lang }) => {
     useEffect(() => {
         if (url) {
             async function loadData() {
-                let link = `https://swagger.city-edge-developments.com/api/Blog/GetBlog/${url}`;
+                let link = `https://swagger.pioneer.city-edge-developments.com/api/Blog/GetBlog/${url}`;
                 const blogData = await fetch(link, {
                     method: "get",
                     headers: {

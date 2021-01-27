@@ -13,14 +13,14 @@ const blogsListing = ({lang}) => {
 
     useEffect(() => {
         async function loadData() {
-            let link = 'https://swagger.city-edge-developments.com/api/Blog/ListBlogHome';
+            let link = 'https://swagger.pioneer.city-edge-developments.com/api/Blog/ListBlogHome';
             if (router.asPath.split('?')[1] != null) {
                 let tag = router.asPath.split('?')[1];
                 if (/^\d+$/.test(tag.split('=')[1])) {
-                    link = 'https://swagger.city-edge-developments.com/api/Blog/ListBlogHome?TagId=' + tag.split('=')[1];
+                    link = 'https://swagger.pioneer.city-edge-developments.com/api/Blog/ListBlogHome?TagId=' + tag.split('=')[1];
                 }
             }
-            // let link = 'https://swagger.city-edge-developments.com/api/Blog/ListBlogHome?TagId=' + id;
+            // let link = 'https://swagger.pioneer.city-edge-developments.com/api/Blog/ListBlogHome?TagId=' + id;
             const listBlogHome = await fetch(link, {
                 method: "POST",
                 headers: {
