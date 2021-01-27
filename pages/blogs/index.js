@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const blogsListing = () => {
+const blogsListing = ({lang}) => {
     const [data, setdata] = useState([]);
     // const [totalCount, setTotalCount] = useState(1);
     const [page, setPage] = useState(0);
@@ -24,7 +24,7 @@ const blogsListing = () => {
             const listBlogHome = await fetch(link, {
                 method: "POST",
                 headers: {
-                    'LanguageCode': 'ar',
+                    'LanguageCode': lang == 'ar' ? 'ar' : 'en',
                     'content-type': 'application/json'
                 },
                 body:
@@ -38,7 +38,7 @@ const blogsListing = () => {
             setdata(blogs.data)
         }
         loadData();
-    }, [page]);
+    }, [page, lang]);
 
     if (data) {
         return (
@@ -54,17 +54,22 @@ const blogsListing = () => {
                 <main className={styles.main}>
                     <div className={commonStyles.bg}>
                         <div className={commonStyles.RealeStateContainer}>
-                            <h2 className={commonStyles.title}> أحدث المقالات من بايونير</h2>
-                            <div className={commonStyles.grid}>
+                            {
+                                lang == 'ar' ?
+                                <h2 className={commonStyles.title}> أحدث المقالات من بايونير</h2>
+                                :
+                                <h2 className={commonStyles.title}>Latest Articles From Pioneer</h2>
+                            }
+                            <div className={`${commonStyles.grid} ${lang == 'en' ? commonStyles.en:''}`}>
                                 {
                                     data ? data.items && data.items.map((blog) => (
-                                        <BlogsCard blog={blog} key={blog.id} />
+                                        <BlogsCard blog={blog} key={blog.id} lang={lang} />
                                     )) : <></>
                                 }
                             </div>
                             {
                                 data.totalcount > 1 ?
-                                    <div className={commonStyles.swipContainer}>
+                                    <div className={`${commonStyles.swipContainer} ${lang == 'en' ? commonStyles.en : ''}`}>
                                         {
                                             page < data.totalcount ?
                                                 <div className={commonStyles.left}>

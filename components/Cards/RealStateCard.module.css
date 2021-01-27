@@ -130,6 +130,11 @@
     margin: 0px auto;
 }
 
+.minPrice.en,
+.projectName.en {
+    text-align: left;
+}
+
 @media (max-width:450px) {
     .projectName {
         font-size: 14px;

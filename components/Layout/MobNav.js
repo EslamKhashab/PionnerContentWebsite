@@ -2,7 +2,7 @@ import navStyles from './Layout.module.css'
 import Link from 'next/link';
 import NavCollapse from '../Cards/NavCollapse';
 
-export default function MobNav({ burgerVisability, setBurgerVisability, contact, navData, social }) {
+export default function MobNav({ burgerVisability, setBurgerVisability, navData, social, lang, setLang }) {
     if (navData.length) {
         return (
             <>
@@ -17,7 +17,7 @@ export default function MobNav({ burgerVisability, setBurgerVisability, contact,
                         </div>
                         <ul className={navStyles.navElem}>
                             {
-                                navData.map((listItem,idx) => (
+                                navData.map((listItem, idx) => (
                                     <NavCollapse key={idx} listItem={listItem} burgerVisability={burgerVisability} setBurgerVisability={setBurgerVisability} />
                                 ))
                             }
@@ -32,13 +32,14 @@ export default function MobNav({ burgerVisability, setBurgerVisability, contact,
                         <div className={navStyles.upCont}>
                             <div className={navStyles.other}>
                                 {/* <div className={navStyles.lang}>
-                                    <div className={navStyles.en}>
+                                    <div className={`${navStyles.en} ${lang == 'en' ? navStyles.disable : ''}`} onClick={() => lang == 'ar' ? setLang('en') : ''}>
                                         <p>English</p>
                                     </div>
-                                    <div className={navStyles.ar}>
+                                    <div className={`${navStyles.ar} ${lang == 'ar' ? navStyles.disable : ''}`} onClick={() => lang == 'en' ? setLang('ar') : ''}>
                                         <p>العربيه</p>
                                     </div>
-                                </div> */}
+                                </div>
+                                 */}
                                 <div className={navStyles.contactButton}>
                                     <a href="#footer">
                                         <button onClick={() => setBurgerVisability(!setBurgerVisability)}>
@@ -49,7 +50,7 @@ export default function MobNav({ burgerVisability, setBurgerVisability, contact,
                                 <div className={navStyles.social}>
                                     <ul>
                                         {
-                                            social.map((item,idx) => (
+                                            social.map((item, idx) => (
                                                 item.name == "Facebook" && item.isActive ?
                                                     <li key={idx}>
                                                         <Link href={item.link}>

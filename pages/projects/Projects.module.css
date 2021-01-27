@@ -35,6 +35,9 @@
     align-items: center;
     justify-content: center;
 }
+.aside.en .phone {
+    flex-direction: row-reverse;
+}
 .aside .phone svg {
     transform: rotateY(180deg);
     margin-right: 0.5rem;
@@ -62,11 +65,6 @@
     margin: 0.5rem;
 }
 .aside form {
-    /* background: url("/bg.jpg"); */
-    /* background: url("/bg.jpg"); */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    /* background-position: center; */
     background-color: var(--main-blue);
     color: #fff;
     text-align: center;
@@ -96,6 +94,10 @@
     margin: 0.3rem 0;
     resize: none;
 }
+.aside.en form input,
+.aside.en form textarea {
+    text-align: left;
+}
 .aside form input::placeholder,
 .aside form textarea::placeholder {
     color: #D2D1D1;
@@ -123,6 +125,10 @@
     width: 70%;
     margin-left: auto;
 }
+.content.en {
+    margin-left: 0;
+    margin-right: auto;
+}
 .content .info_table {
     background: #fff;
     /* box-shadow: -1px 4px 20px 0 rgba(0, 0, 0, 0.15); */
@@ -131,6 +137,11 @@
 .content .info_table tbody tr td:last-child {
     text-align: right;
     padding-right: 1rem;
+}
+.content .info_table.en tbody tr td:last-child {
+    text-align: left;
+    padding-right: 0;
+    padding-left: 1rem;
 }
 .content .info_table tbody tr td:first-child {
     text-align: center;
@@ -161,6 +172,9 @@
     text-align: right;
     margin-top: 2rem;
 }
+.content .list_table.en {
+    text-align: left;
+}
 .content .list_table .links_container {
     display: flex;
     justify-content: space-between;
@@ -180,6 +194,10 @@
     border-radius: 50%;
     background: #fff;
 }
+.content .list_table.en .links_container a::after {
+    right: auto;
+    left: 0%;
+}
 .content .list_table .links_container a:hover {
     filter: invert(0.1);
     text-decoration: underline;
@@ -188,6 +206,10 @@
    margin-top: 0.3rem; 
    position: relative;
    padding-right: 2%;
+}
+.content .list_table.en .links_container a {
+   padding-right: 0;
+   padding-left: 2%;
 }
 .list_content p {
     color: var(--text-color);

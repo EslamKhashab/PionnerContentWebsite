@@ -10,33 +10,33 @@ import UsCard from "../components/Cards/UsCard";
 import UsSection from "../components/Cards/UsSection";
 import HomeBlogs from "../components/home/HomeBlogs";
 
-const Home = () => {
+const Home = ({lang, flag}) => {
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Pioner</title>
+        <title>Pioneer</title>
         <link rel="icon" href="/logo.ico" />
       </Head>
 
       <main className={styles.main}>
 
-        <HeroSlider />
+        <HeroSlider lang={lang} flag={flag} />
 
-        <HomeProRealState />
+        <HomeProRealState lang={lang} flag={flag} />
 
-        <HomeRealState />
+        <HomeRealState lang={lang} flag={flag} />
 
-        <HomeRealState2 />
+        <HomeRealState2 lang={lang} flag={flag} />
 
         {/* just in case , slice the the first 6 blogs in the array */}
-        <HomeBlogs />
+        <HomeBlogs lang={lang} flag={flag} />
 
-        <Developers />
+        <Developers lang={lang} flag={flag} />
 
-        <UsCard />
+        <UsCard lang={lang} flag={flag} />
 
-        <UsSection />
+        <UsSection lang={lang} flag={flag} />
 
       </main>
     </div>

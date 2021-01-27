@@ -7,7 +7,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 const MiniSlider = ({ list }) => {
     return (
         <>
-            <div className={`${styles.minicontainer} heroSlider pc`} style={{ marginBottom: "2rem" }}>
+            <div className={`${styles.minicontainer} heroSlider pc`} style={{ marginBottom: "2rem" }} dir='rtl'>
                 <Swiper
                     speed={2000}
                     spaceBetween={0}

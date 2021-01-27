@@ -3,7 +3,7 @@ import RealStateCard from "../Cards/RealStateCard";
 import styles from "./HomeRealState2.module.css";
 import commonStyles from "./Common.module.css"
 
-const HomeRealState2 = () => {
+const HomeRealState2 = ({lang, flag}) => {
   const [showcase, setShowcase] = useState("");
   const [nonRes, setnonRes] = useState([]);
   const [dataList, setdataList] = useState([]);
@@ -12,18 +12,18 @@ const HomeRealState2 = () => {
   useEffect(() => {
     async function loadData() {
       if (window.localStorage.getItem('commercialListTime') != null) {
-        if (new Date(window.localStorage.getItem('commercialListTime')).getHours() + 1 < new Date().getHours()) {
+        if (new Date(window.localStorage.getItem('commercialListTime')).getMinutes() + 5 < new Date().getMinutes()) {
           window.localStorage.removeItem('commercialList');
           window.localStorage.removeItem('commercialListTime');
         }
       }
-      if (window.localStorage.getItem('commercialList') != null) {
+      if (window.localStorage.getItem('commercialList') != null && !flag) {
         setnonRes(JSON.parse(window.localStorage.getItem('commercialList')))
       } else {
         const nonResReq = await fetch('https://swagger.city-edge-developments.com/api/Home/ListFilterType?IsCommercial=true', {
           method: "get",
           headers: {
-            'LanguageCode': 'ar'
+            'LanguageCode': lang == 'ar' ? 'ar' : 'en'
           }
         })
         const nonResRes = await nonResReq.json()
@@ -33,7 +33,7 @@ const HomeRealState2 = () => {
       }
     }
     loadData();
-  }, []);
+  }, [flag]);
   useEffect(() => {
 
     nonRes.length && setShowcase(nonRes[0].name)
@@ -42,7 +42,7 @@ const HomeRealState2 = () => {
       let listItem = fetch(link, {
         method: "get",
         headers: {
-          'LanguageCode': 'ar'
+          'LanguageCode': lang == 'ar' ? 'ar' : 'en'
         }
       }).then(res => res.json())
         .then(da => {
@@ -70,8 +70,13 @@ const HomeRealState2 = () => {
     return (
       <div className={styles.bg}>
         <div className={commonStyles.RealeStateContainer}>
-          <h2 className={styles.title}>المشاريع التجارية المميزة</h2>
-          <h3 className={styles.subTitle} dir="rtl">
+          {
+            lang == 'ar' ? 
+              <h2 className={styles.title}>المشاريع التجارية المميزة</h2>
+            :
+              <h2 className={styles.title}>Distinguished Commercial Projects</h2>
+          }
+          <h3 className={styles.subTitle} dir={lang == 'ar' ? 'rtl' : 'ltr'}>
             {
               nonRes.map((item) => (
                 <div
@@ -84,10 +89,10 @@ const HomeRealState2 = () => {
               ))
             }
           </h3>
-          <div className={commonStyles.grid}>
+          <div className={`${commonStyles.grid} ${lang == 'en' ? commonStyles.en:''}`}>
             {
               ShowcaseArray().map((project) => (
-                <RealStateCard project={project} key={project.id} />
+                <RealStateCard project={project} key={project.id} lang={lang} />
               ))
             }
           </div>

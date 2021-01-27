@@ -11,6 +11,9 @@
 .us .content {
     width: 49%;
 }
+.us .content.en {
+    text-align: left;
+}
 .us .img {
     width: 49%;
 }

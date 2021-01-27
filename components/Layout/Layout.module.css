@@ -34,6 +34,12 @@
     padding-right: 1rem;
     margin-right: 1rem;
 }
+.navbarMain .up .contact .contactElem.en {
+    padding-right: 0;
+    margin-right: 0;
+    padding-left: 1rem;
+    margin-left: 1rem;
+}
 
 .navbarMain .up .contact .contactElem::after {
     content: '';
@@ -44,6 +50,10 @@
     right: 0;
     background: var(--light-gray);
 }
+.navbarMain .up .contact .en.contactElem::after {
+    left: 0;
+    right: auto;
+}
 
 .navbarMain .up .contact .contactElem:last-child::after {
     width: 0px;
@@ -53,9 +63,16 @@
     padding-right: 0;
     margin-right: 0;
 }
+.navbarMain .up .contact .en.contactElem:last-child {
+    padding-left: 0;
+    margin-left: 0;
+}
 
 .navbarMain .up .contact .contactElem a {
     display: flex;
+}
+.navbarMain .up .contact .contactElem.en a {
+    flex-direction: row-reverse;
 }
 
 .navbarMain .up .contact .contactElem p,
@@ -66,6 +83,9 @@
     color: var(--background-color-light);
     font-weight: 600;
     font-size: medium;
+}
+.navbarMain .up .other .lang.en p {
+    margin: 0px;
 }
 
 .navbarMain .up .contact .contactElem .icon {
@@ -118,19 +138,33 @@
 .navbarMain .up .other .lang {
     display: flex;
 }
+.navbarMain .up .other .lang.en {
+    margin-left: 0.3rem;
+}
+.navbarMain .up .other .lang.en {
+    flex-direction: row-reverse;
+}
 
 .navbarMain .up .other .lang .en {
     position: relative;
     margin-right: 0.7rem;
     padding-right: 0.7rem;
-    font-family: var(--font-family-ar);
 }
 
-.navbarMain .up .other .lang .en p,
 .mobNav .other .lang .en p {
     color: var(--meduim-gray);
     cursor: pointer;
     margin-right: 0;
+}
+
+.navbarMain .up .other .lang .en p {
+    color: #fff;
+    cursor: pointer;
+    margin-right: 0;
+}
+.navbarMain .up .other .lang .en.disable p {
+    color: var(--meduim-gray);
+    cursor: initial;
 }
 
 .navbarMain .up .other .lang .en p::after {
@@ -144,12 +178,18 @@
 }
 
 .navbarMain .up .other .lang .ar {
-    color: var(--meduim-gray);
-    font-family: var(--font-family-ar);
+    color: #fff;
+    cursor: pointer;
+}
+.navbarMain .up .other .lang .ar.disable {
+    cursor: initial;
 }
 
 .navbarMain .up .other .lang .ar p {
     font-size: smaller;
+}
+.navbarMain .up .other .lang .ar.disable p {
+    color: var(--meduim-gray);
 }
 
 /* sticky */
@@ -511,12 +551,10 @@
 .mobNav .navElem::-webkit-scrollbar {
     width: 0px;
     background: transparent;
-    /* make scrollbar transparent */
 }
 
 /* footer contact */
 .footer_contact {
-    /* background: url("/graybg.jpg"); */
     background: var(--main-blue);
     position: relative;
     overflow: hidden;
@@ -564,6 +602,13 @@
     align-items: center;
     justify-content: center;
 }
+.footer_contact .footer_contact_item.en .icon {
+    margin-left: 0;
+    margin-right: 2rem;
+}
+.footer_contact .footer_contact_item.en a {
+    text-align: left;
+}
 
 .footer_contact .footer_contact_item .text {
     display: flex;
@@ -580,6 +625,9 @@
 .footer_contact .footer_contact_item .text p {
     margin: 0;
     font-size: medium;
+}
+.footer_contact .footer_contact_item.en .text p {
+    text-align: left;
 }
 
 .footer_contact .footer_contact_item .mtext p {
@@ -648,14 +696,28 @@
     height: 4px;
     background-color: var(--main-orange);
 }
+.footer .content_container .content .content_item.en h3::after {
+    left: 0;
+    right: auto;
+}
 
 .footer .content_container .content .content_item h3 {
     margin-bottom: 1.5rem;
+}
+.footer .content_container .content .content_item.en h3 {
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
 }
 
 .footer .content_container .content .content_item {
     max-width: 33%;
     padding-left: 1rem;
+}
+.footer .content_container .content .content_item.en {
+    padding-left: 0;
+    padding-right: 1rem;
+    text-align: left;
 }
 
 .footer .content_container .content .content_item li {
@@ -665,6 +727,11 @@
 .footer .content_container .content .content_item ul {
     list-style: disc;
     padding-right: 1rem;
+}
+.footer .content_container .content .content_item.en ul {
+    padding-right: 0;
+    padding-left: 1rem;
+    text-align: left;
 }
 
 .footer .contact_text_item {
@@ -685,6 +752,10 @@
 .contact_text_item p {
     margin: 0;
     margin-right: 1rem;
+}
+.contact_text_item.en p {
+    margin: 0;
+    margin-left: 1rem;
 }
 
 .contact_text_item .icon {

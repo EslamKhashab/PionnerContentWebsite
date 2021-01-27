@@ -11,7 +11,7 @@ const NavCollapse = ({ listItem, burgerVisability, setBurgerVisability }) => {
                 <div className={navStyles.NavList}>
                     {
                         listItem.cities.map((item,idx) => (
-                            <Link href={`/projects/${listItem.isCommercial ? 'commerial' : 'noncommerial'}/${item.name.replace(' ','_')}`} key={idx}>
+                            <Link href={`/projects/${listItem.propertyUrl}/${item.name.replace(' ','-')}`} key={idx}>
                                 <div className={navStyles.NavListItem} onClick={() => {
                                     setBurgerVisability(!burgerVisability)
                                     setopen(!open)

@@ -6,23 +6,23 @@ import "swiper/swiper-bundle.css";
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 import styles from "./developers.module.css";
 
-const Developers = () => {
+const Developers = ({lang, flag}) => {
     const [data, setdata] = useState([]);
     useEffect(() => {
         async function loadData() {
             if (window.localStorage.getItem('devssliderTime') != null) {
-                if (new Date(window.localStorage.getItem('devssliderTime')).getHours() + 1 < new Date().getHours()) {
+                if (new Date(window.localStorage.getItem('devssliderTime')).getMinutes() + 5 < new Date().getMinutes()) {
                     window.localStorage.removeItem('devsslider');
                     window.localStorage.removeItem('devssliderTime');
                 }
             }
-            if (window.localStorage.getItem('devsslider') != null) {
+            if (window.localStorage.getItem('devsslider') != null && !flag) {
                 setdata(JSON.parse(window.localStorage.getItem('devsslider')))
             } else {
                 const developersList = await fetch('https://swagger.city-edge-developments.com/api/Home/ListDeveloper', {
                     method: "get",
                     headers: {
-                        'LanguageCode': 'ar'
+                        'LanguageCode': lang == 'ar' ? 'ar' : 'en'
                     }
                 })
                 const devs = await developersList.json()
@@ -33,13 +33,18 @@ const Developers = () => {
         }
 
         loadData();
-    }, []);
+    }, [flag]);
     if (data.length) {
         return (
             <div className={styles.dev}>
                 <div className={styles.container}>
                     {/* <h3 className={styles.superTitle}> المطورين العقاريين </h3> */}
-                    <h2 className={styles.title}> أفضل المطورين العقاريين </h2>
+                    {
+                        lang == 'ar' ?
+                            <h2 className={styles.title}> أفضل المطورين العقاريين </h2>
+                        :
+                            <h2 className={styles.title}>The Best Real Estate Developers</h2>
+                    }
                     <div className={styles.sliderContainer}>
                         <Swiper
                             autoplay={{ delay: 2000, disableOnInteraction: true }}
@@ -75,9 +80,7 @@ const Developers = () => {
                             }
                         </Swiper>
                     </div>
-
                 </div>
-
             </div>
         )
     } else {

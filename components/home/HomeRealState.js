@@ -3,7 +3,7 @@ import RealStateCard from "../Cards/RealStateCard"
 import styles from "./HomeRealState.module.css";
 import commonStyles from "./Common.module.css"
 
-const HomeRealState = () => {
+const HomeRealState = ({lang, flag}) => {
     const [showcase, setShowcase] = useState("");
     const [nonRes, setnonRes] = useState([]);
     const [dataList, setdataList] = useState([]);
@@ -12,18 +12,18 @@ const HomeRealState = () => {
     useEffect(() => {
         async function loadData() {
             if (window.localStorage.getItem('nonCommercialListTime') != null) {
-                if (new Date(window.localStorage.getItem('nonCommercialListTime')).getHours() + 1 < new Date().getHours()) {
+                if (new Date(window.localStorage.getItem('nonCommercialListTime')).getMinutes() + 5 < new Date().getMinutes()) {
                     window.localStorage.removeItem('nonCommercialList');
                     window.localStorage.removeItem('nonCommercialListTime');
                 }
             }
-            if (window.localStorage.getItem('nonCommercialList') != null) {
+            if (window.localStorage.getItem('nonCommercialList') != null && !flag) {
                 setnonRes(JSON.parse(window.localStorage.getItem('nonCommercialList')))
             } else {
                 const nonResReq = await fetch('https://swagger.city-edge-developments.com/api/Home/ListFilterType?IsCommercial=false', {
                     method: "get",
                     headers: {
-                        'LanguageCode': 'ar'
+                        'LanguageCode': lang == 'ar' ? 'ar' : 'en'
                     }
                 })
                 const nonResRes = await nonResReq.json()
@@ -32,9 +32,8 @@ const HomeRealState = () => {
                 window.localStorage.setItem('nonCommercialListTime', new Date());
             }
         }
-
         loadData();
-    }, []);
+    }, [flag]);
     useEffect(() => {
 
         if (nonRes.length) {
@@ -44,7 +43,7 @@ const HomeRealState = () => {
                 let listItem = fetch(link, {
                     method: "get",
                     headers: {
-                        'LanguageCode': 'ar'
+                        'LanguageCode': lang == 'ar' ? 'ar' : 'en'
                     }
                 }).then(res => res.json())
                     .then(da => {
@@ -74,8 +73,15 @@ const HomeRealState = () => {
         return (
             <div className={styles.bg}>
                 <div className={commonStyles.RealeStateContainer}>
-                    <h2 className={styles.title}>المشاريع العقارية المميزة</h2>
-                    <h3 className={styles.subTitle} dir="rtl">
+                    <h2 className={styles.title}>
+                        {
+                            lang == 'ar' ?
+                            'المشاريع العقارية المميزة'
+                            :
+                            'Distinguished Real Estate Projects'
+                        }
+                    </h2>
+                    <h3 className={styles.subTitle} dir={lang == 'ar' ? 'rtl' : 'ltr'}>
                         {
                             nonRes.map((item) => (
                                 <div
@@ -88,10 +94,10 @@ const HomeRealState = () => {
                             ))
                         }
                     </h3>
-                    <div className={commonStyles.grid}>
+                    <div className={`${commonStyles.grid} ${lang == 'en' ? commonStyles.en:''}`}>
                         {
                             ShowcaseArray().map((project) => (
-                                <RealStateCard project={project} key={project.id} />
+                                <RealStateCard project={project} key={project.id} lang={lang} />
                             ))
                         }
                     </div>

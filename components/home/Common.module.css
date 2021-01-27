@@ -18,10 +18,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: center;
 }
 
-
+.grid.en {
+    direction: ltr;
+}
 
 .bg {
     background: #fbb1161a;
@@ -56,25 +57,35 @@
     display: flex;
     justify-content: center;
 }
+
+.swipContainer.en {
+    flex-direction: row-reverse;
+}
+
 .swipContainer svg {
     width: 3rem;
     cursor: pointer;
 }
+
 .swipContainer svg path {
     fill: var(--main-blue);
     fill-opacity: 0.8;
 }
+
 .swipContainer svg:hover path {
     fill-opacity: 1;
 }
+
 .swipContainer .right.active svg,
 .swipContainer .left svg {
     cursor: not-allowed;
 }
+
 .swipContainer .right.active svg path,
 .swipContainer .left svg path {
     opacity: 0.3;
 }
+
 .swipContainer .right svg {
     transform: rotate(180deg);
 }

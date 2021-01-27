@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 
-const UsCard = () => {
+const UsCard = ({lang, flag}) => {
 
     const [data, setdata] = useState([]);
 
     useEffect(() => {
         async function loadData() {
             if (window.localStorage.getItem('usdatacardTime') != null) {
-                if (new Date(window.localStorage.getItem('usdatacardTime')).getHours() + 1 < new Date().getHours()) {
+                if (new Date(window.localStorage.getItem('usdatacardTime')).getMinutes() + 5 < new Date().getMinutes()) {
                     window.localStorage.removeItem('usdatacard');
                     window.localStorage.removeItem('usdatacardTime');
                 }
             }
-            if (window.localStorage.getItem('usdatacard') != null) {
+            if (window.localStorage.getItem('usdatacard') != null && !flag) {
                 setdata(JSON.parse(window.localStorage.getItem('usdatacard')))
             } else {
                 const us = await fetch('https://swagger.city-edge-developments.com/api/Home/ListAboutUsSection', {
                     method: "get",
                     headers: {
-                        'LanguageCode': 'ar'
+                        'LanguageCode': lang == 'ar' ? 'ar' : 'en'
                     }
                 })
                 const usdatacard = await us.json()
@@ -29,7 +29,7 @@ const UsCard = () => {
         }
 
         loadData();
-    }, []);
+    }, [flag]);
     if (data) {
         return (
             <>
@@ -65,7 +65,7 @@ const UsCard = () => {
                                             </svg>
 
                                         </div>
-                                        <div className="content">
+                                        <div className={`content ${lang == 'en' ? 'en' : ''}`}>
                                             <h3>{item.title}</h3>
                                             <p>{item.description}</p>
                                         </div>
@@ -79,7 +79,7 @@ const UsCard = () => {
                                                 </svg>
 
                                             </div>
-                                            <div className="content">
+                                            <div className={`content ${lang == 'en' ? 'en' : ''}`}>
                                                 <h3>{item.title}</h3>
                                                 <p>{item.description}</p>
                                             </div>
@@ -105,7 +105,7 @@ const UsCard = () => {
                                                     </defs>
                                                 </svg>
                                             </div>
-                                            <div className="content">
+                                            <div className={`content ${lang == 'en' ? 'en' : ''}`}>
                                                 <h3>{item.title}</h3>
                                                 <p>{item.description}</p>
                                             </div>
@@ -153,6 +153,11 @@ const UsCard = () => {
                 }
                 .usCard_container_item .content {
                     margin-right: 1rem;
+                }
+                .usCard_container_item .content.en {
+                    margin-right: 0;
+                    margin-left: 1rem;
+                    text-align: left;
                 }
                 .usCard_container_item .content h3 {
                     margin: 0;

@@ -4,7 +4,7 @@ import Similiar from '../../components/SimiliarSlider/Similiar';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 
-const Developer = () => {
+const Developer = ({lang}) => {
     const router = useRouter();
     const { url } = router.query;
     const [data, setdata] = useState({});
@@ -23,7 +23,7 @@ const Developer = () => {
                 const DeveloperDestails = await fetch(link, {
                     method: "get",
                     headers: {
-                        'LanguageCode': 'ar'
+                        'LanguageCode': lang == 'ar' ? 'ar' : 'en'
                     }
                 })
                 const res = await DeveloperDestails.json();
@@ -36,7 +36,7 @@ const Developer = () => {
             loadData();
             seturllink(window.location.href);
         }
-    }, [url])
+    }, [url,lang])
 
     function convert(text) {
         document.querySelector('#text').innerHTML = text;
@@ -64,8 +64,14 @@ const Developer = () => {
                     <meta property="og:title" content={data.metatagTitle ? data.metatagTitle : data.name} />
                     <meta property="og:description" content={data.metatagDescription ? data.metatagDescription : ''} />
                     <meta property="og:image" content={img ? img : ''} />
+                    {
+                        !data.isActive ? 
+                        <meta name="robots" content="noindex,nofollow"/>
+                        :
+                        ''
+                    }
                 </Head>
-                <main className={styles.main} dir="rtl">
+                <main className={styles.main} dir={lang == 'ar' ? 'rtl' : 'ltr'}>
                     <div className={`${styles.project_cont} ${styles.dev_cont}`}>
                         <div className={styles.content}>
                             <div className={styles.list_content}>
@@ -89,7 +95,12 @@ const Developer = () => {
                         </div>
                     </div>
                     <div className={styles.similiar}>
-                        <h1 className={styles.title}> مشروعات شركة {data.name} </h1>
+                        {
+                            lang == 'ar' ? 
+                            <h1 className={styles.title}> مشروعات شركة {data.name} </h1>
+                            :
+                            <h1 className={styles.title}>{data.name} Company projects</h1>
+                        }
                         <Similiar list={data.relatedProjects} />
                     </div>
                 </main>

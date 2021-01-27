@@ -1,15 +1,22 @@
 import Link from 'next/link';
 import styles from "./RealStateCard.module.css";
 
-export default function RealStateCard({ project }) {
+export default function RealStateCard({ project, lang }) {
+    
+    const chunk = (str, n) => {
+        let len = '';
+        len = str;
+        for (let i = len.length - n; i > 0; i -= n) {
+            len = [len.slice(0, i), '.', len.slice(i)].join('');
+        }
+        return len;
+    };
 
     return (
         <>
             <div className={`${styles.RealeStateCard} blogsProjectsListingItem`}>
                 <div className={styles.RealeStateInfo}>
-                    {/* en */}
-                    {/* <Link href={`/projects/${project.isCommercial ? 'commerial' : 'noncommerial'}/${project.cityName.replace(' ','_')}/${project.url}`} target="_blank"> */}
-                    <Link href={`/projects/${project.isCommercial ? 'commerial' : 'noncommerial'}/${project.cityName.replace(' ','_')}/${project.url}`} target="_blank">
+                    <Link href={`/projects/${project.propertyUrl}/${project.cityName.replace(' ', '-')}/${project.url}`} target="_blank">
                         <a>
                             <div className={` ${styles.RealeStateWrapper} blogsProjectsListingItemWrapper`}>
                                 <div className={styles.imageBg + " imageBg"}>
@@ -17,12 +24,17 @@ export default function RealStateCard({ project }) {
                                     </div>
                                 </div>
                             </div>
-                            <h3 className={styles.projectName}>{project.name}</h3>
-                            <h4 className={styles.minPrice}>اسعار تبدأ من {project.price}</h4>
+                            <h3 className={`${styles.projectName} ${lang == 'en' ? styles.en : ''}`}>{project.name}</h3>
+                            {
+                                lang == 'ar' ? 
+                                <h4 className={styles.minPrice}>أسعار تبدأ من {project.price ? chunk(project.price,3) : ''}</h4>
+                                :
+                                <h4 className={`${styles.minPrice} ${styles.en}`}>Prices start from {project.price ? chunk(project.price,3) : ''}</h4>
+                            }
                         </a>
                     </Link>
                     <div className={styles.RealeStateTag}>
-                        <Link href={`/projects/${project.isCommercial ? 'commerial' : 'noncommerial'}/${project.cityName.replace(' ','_')}`}>
+                        <Link href={`/projects/${project.propertyUrl}/${project.cityName.replace(' ', '-')}`}>
                             <a>
                                 <h3 className={styles.RealeStateCity}><span>{project.cityName}</span></h3>
                             </a>

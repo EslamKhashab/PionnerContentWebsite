@@ -28,6 +28,9 @@
     align-items: center;
     direction: rtl;
 }
+.slide.en {
+    direction: ltr;
+}
 .sliderimg,
 .sliderimg div div {
     width: 100%;

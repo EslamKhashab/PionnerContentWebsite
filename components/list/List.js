@@ -66,11 +66,11 @@ export default function List({city}) {
                 </div>
             </div>
               <div className={commonStyles.RealeStateContainer}>
-                <div className={commonStyles.grid}> 
+                <div className={`${commonStyles.grid} ${lang == 'en' ? commonStyles.en:''}`}> 
                   {projects.map((project, index)=>{ 
                     return (
                         <React.Fragment key={index}>
-                            <RealStateCard project={project}/>
+                            <RealStateCard project={project} lang={lang} />
                         </React.Fragment>
                     )
                 })

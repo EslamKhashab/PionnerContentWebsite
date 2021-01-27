@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from "./BlogsCard.module.css";
 
-export default function BlogsCard({ blog, listing }) {
+export default function BlogsCard({ blog, listing, lang }) {
 
     return (
         <>
@@ -21,7 +21,7 @@ export default function BlogsCard({ blog, listing }) {
                             }
                         </div>
                     </div>
-                    <h3 className={styles.blogName}>{blog.name}</h3>
+                    <h3 className={`${styles.blogName} ${lang == 'en' ? styles.en : ''}`}>{blog.name}</h3>
                 </a>
             </Link>
         </>

@@ -3,16 +3,26 @@ import Link from 'next/link';
 import styles from "./SimiliarSlider.module.css";
 import realstyle from '../Cards/RealStateCard.module.css';
 
-const Similiar = ({ list }) => {
+const Similiar = ({ list, lang }) => {
+
+    const chunk = (str, n) => {
+        let len = '';
+        len = str;
+        for (let i = len.length - n; i > 0; i -= n) {
+            len = [len.slice(0, i), '.', len.slice(i)].join('')
+        }
+        return len;
+    };
+
     return (
         <div className={styles.dev}>
             <div className={styles.container}>
                 <div className={styles.sliderContainer}>
                     {
-                        list && list.map((dev) => {
+                        list && list.map((dev, idx) => {
                             return (
-                                <div className={realstyle.RealeStateCard} key={dev.id}>
-                                    <Link href={`/projects/${dev.isCommercial ? 'commerial' : 'noncommerial'}/${dev.cityName ? dev.cityName.replace(' ','_') : dev.name.replace(' ','_')}/${dev.url}`} target="_blank">
+                                <div className={realstyle.RealeStateCard} key={idx}>
+                                    <Link href={`/projects/${dev.propertyUrl}/${dev.cityName ? dev.cityName.replace(' ', '-') : dev.name.replace(' ', '-')}/${dev.url}`} target="_blank">
                                         <div className={realstyle.RealeStateWrapper}>
                                             <div className="pc">
                                                 <img className={realstyle.RealeStateImg} src={dev.pcImage} loading="lazy" />
@@ -23,15 +33,20 @@ const Similiar = ({ list }) => {
                                         </div>
                                     </Link>
                                     <div className={realstyle.RealeStateTag}>
-                                        <Link href={`/projects/${dev.isCommercial ? 'commerial' : 'noncommerial'}/${dev.cityName ? dev.cityName.replace(' ','_') : dev.name.replace(' ','_')}`}>
+                                        <Link href={`/projects/${dev.propertyUrl}/${dev.cityName ? dev.cityName.replace(' ', '-') : dev.name.replace(' ', '-')}`}>
                                             <h3 className={realstyle.RealeStateCity}><span>{dev.cityName}</span></h3>
                                         </Link>
                                     </div>
                                     <div className={realstyle.RealeStateInfo}>
-                                        <Link href={`/projects/${dev.isCommercial ? 'commerial' : 'noncommerial'}/${dev.cityName ? dev.cityName.replace(' ','_') : dev.name.replace(' ','_')}/${dev.url}`} target="_blank">
+                                        <Link href={`/projects/${dev.propertyUrl}/${dev.cityName ? dev.cityName.replace(' ', '-') : dev.name.replace(' ', '-')}/${dev.url}`} target="_blank">
                                             <a>
-                                                <h3 className={realstyle.projectName}>{dev.name}</h3>
-                                                <h4 className={realstyle.minPrice}>اسعار تبدأ من {dev.price}</h4>
+                                                <h3 className={`${realstyle.projectName} ${lang == 'en' ? realstyle.en : ''}`}>{dev.name}</h3>
+                                                {
+                                                    lang == 'ar' ?
+                                                    <h4 className={`${realstyle.minPrice}`}>أسعار تبدأ من {dev.price ? chunk(dev.price, 3) : ''}</h4>
+                                                    :
+                                                    <h4 className={`${realstyle.minPrice} ${realstyle.en}`}>Prices starts from {dev.price ? chunk(dev.price, 3) : ''}</h4>
+                                                }
                                             </a>
                                         </Link>
                                     </div>

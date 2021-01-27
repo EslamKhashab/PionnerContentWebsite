@@ -1,14 +1,14 @@
 import navStyles from './Layout.module.css'
 import Link from 'next/link';
 
-export default function Footer({ contact, social, whatssApp, listfooterLinks, footerUsObj, logo }) {
+export default function Footer({ contact, social, whatssApp, listfooterLinks, footerUsObj, logo, lang }) {
     return (
         <>
             <div className={navStyles.footer_contact} id="footer">
                 <div className={navStyles.imgCont}><img src="/bg.jpg" alt="background" loading="lazy" /></div>
                 {
                     contact.email ?
-                        <div className={navStyles.footer_contact_item}>
+                        <div className={`${navStyles.footer_contact_item} ${lang == 'en' ? navStyles.en : ''}`}>
                             <div className={navStyles.icon}>
                                 <svg height="21" viewBox="0 0 27 21" fill="none">
                                     <path fillRule="evenodd" clipRule="evenodd" d="M26.125 19V2.375L13.0625 13.0625L0 2.375V19H26.125ZM13.0625 9.5L24.9375 0H1.1875L13.0625 9.5Z" fill="#3b5a9a" />
@@ -17,7 +17,12 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
                             <div className={navStyles.text}>
                                 <Link href={`mailto:${contact.email}`}>
                                     <a>
-                                        <h3>إيميل</h3>
+                                        {
+                                            lang == 'ar' ?
+                                                <h3>إيميل</h3>
+                                                :
+                                                <h3>E-mail</h3>
+                                        }
                                         <p>{contact.email}</p>
                                     </a>
                                 </Link>
@@ -27,7 +32,7 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
                 }
                 {
                     contact.mobileNumber ?
-                        <div className={navStyles.footer_contact_item}>
+                        <div className={`${navStyles.footer_contact_item} ${lang == 'en' ? navStyles.en : ''}`}>
                             <div className={navStyles.icon}>
 
                                 <svg height="30" viewBox="0 0 30 30" fill="none">
@@ -35,7 +40,12 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
                                 </svg>
                             </div>
                             <div className={`${navStyles.text} ${navStyles.mtext}`} onClick={whatssApp}>
-                                <h3>واتساب</h3>
+                                {
+                                    lang == 'ar' ?
+                                        <h3>واتساب</h3>
+                                        :
+                                        <h3>WhatsApp</h3>
+                                }
                                 <p>{contact.mobileNumber}</p>
                             </div>
                         </div>
@@ -43,7 +53,7 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
                 }
                 {
                     contact.hotline ?
-                        <div className={navStyles.footer_contact_item}>
+                        <div className={`${navStyles.footer_contact_item} ${lang == 'en' ? navStyles.en : ''}`}>
                             <div className={navStyles.icon}>
                                 <svg height="24" viewBox="0 0 23 24" fill="none">
                                     <path d="M17.1713 1C18.6864 1 20.8901 2.67545 21.441 3.79242C22.2284 5.38881 22.0984 6.01595 21.5787 7.70182C20.8901 9.93576 18.871 13.8955 16.0695 16.6376C12.0753 20.547 8.35662 22.2224 6.70386 22.7809C5.0511 23.3394 3.26061 22.7809 2.15877 21.6639C1.05693 20.547 -0.0449104 19.43 1.19466 17.7545C2.07304 16.5673 3.35263 15.1947 4.91337 14.4036C6.33252 13.6843 7.17828 13.9461 7.66797 14.9621C7.93868 15.5238 8.02276 16.5996 8.21889 17.1961C8.46634 17.9486 9.45846 17.7545 10.5603 17.1961C11.6152 16.6614 14.279 14.4036 16.4827 11.0527C17.848 8.97661 15.6657 8.96315 14.279 8.2603C13.1772 7.70182 12.8356 6.41728 13.7281 4.90939C15.3809 2.11697 15.9318 1 17.1713 1Z" fill="#3b5a9a" stroke="black" strokeWidth="0.0833333" />
@@ -54,7 +64,12 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
 
                                 <Link href={`tel:${contact.hotline}`}>
                                     <a>
-                                        <h3>الهاتف</h3>
+                                        {
+                                            lang == 'ar' ?
+                                                <h3>الهاتف</h3>
+                                                :
+                                                <h3>Phone Number</h3>
+                                        }
                                         <p>{contact.hotline}</p>
                                     </a>
                                 </Link>
@@ -66,16 +81,26 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
             <footer className={navStyles.footer}>
                 <div className={navStyles.content_container}>
                     <div className={navStyles.content}>
-                        <div className={navStyles.content_item}>
-                            <h3 className={navStyles.title}>عنا</h3>
+                        <div className={`${navStyles.content_item} ${lang == 'en' ? navStyles.en : ''}`}>
+                            {
+                                lang == 'ar' ?
+                                    <h3 className={navStyles.title}>عنا</h3>
+                                    :
+                                    <h3 className={navStyles.title}>About Us</h3>
+                            }
                             <p>{footerUsObj.description}</p>
                         </div>
-                        <div className={navStyles.content_item}>
-                            <h3 className={navStyles.title}>إتصل بنا</h3>
+                        <div className={`${navStyles.content_item} ${lang == 'en' ? navStyles.en : ''}`}>
+                            {
+                                lang == 'ar' ?
+                                    <h3 className={navStyles.title}>إتصل بنا</h3>
+                                    :
+                                    <h3 className={navStyles.title}>Contact Us</h3>
+                            }
                             <div className={navStyles.contact_text}>
                                 {
                                     contact.hotline ?
-                                        <div className={navStyles.contact_text_item}>
+                                        <div className={`${navStyles.contact_text_item} ${lang == 'en' ? navStyles.en : ''}`}>
                                             <Link href={`tel:${contact.hotline}`}>
                                                 <a>
                                                     <div className={navStyles.icon}>
@@ -93,7 +118,7 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
                                 }
                                 {
                                     contact.mobileNumber ?
-                                        <div className={navStyles.contact_text_item} onClick={whatssApp}>
+                                        <div className={`${navStyles.contact_text_item} ${lang == 'en' ? navStyles.en : ''}`} onClick={whatssApp}>
                                             <div className={navStyles.icon}>
                                                 <svg height="30" viewBox="0 0 30 30" fill="none">
                                                     <path d="M25.5 4.35938C22.6931 1.54688 18.96 0 14.9831 0C6.79125 0 0.12375 6.6675 0.12375 14.865C0.12375 17.4844 0.81 20.0456 2.10938 22.2956L0 30L7.88063 27.9319C10.0538 29.115 12.4988 29.7431 14.9813 29.7431H14.9869C23.1788 29.7431 29.8519 23.0756 29.8519 14.8781C29.8519 10.905 28.305 7.17375 25.4981 4.36125L25.5 4.35938ZM14.9869 27.2344C12.7669 27.2344 10.5919 26.6363 8.69438 25.5113L8.2425 25.2413L3.56625 26.4656L4.815 21.9075L4.5225 21.4388C3.27938 19.4756 2.63063 17.2031 2.63063 14.865C2.63063 8.05125 8.17313 2.50688 14.9944 2.50688C18.2925 2.50688 21.3994 3.79687 23.73 6.1275C26.0625 8.46562 27.345 11.565 27.345 14.8688C27.3394 21.6881 21.7969 27.2325 14.9869 27.2325V27.2344ZM21.7612 17.9775C21.3919 17.79 19.5637 16.8938 19.2244 16.77C18.885 16.6463 18.6375 16.5825 18.3862 16.9575C18.1406 17.3269 17.4262 18.165 17.2087 18.4163C16.9912 18.6619 16.7756 18.6975 16.4062 18.51C16.0369 18.3225 14.835 17.9306 13.4175 16.665C12.315 15.6806 11.5669 14.4619 11.3494 14.0925C11.1319 13.7231 11.325 13.5188 11.5144 13.3369C11.685 13.1719 11.8838 12.9038 12.0713 12.6862C12.2588 12.4688 12.3169 12.3169 12.4406 12.0656C12.5644 11.82 12.5044 11.6025 12.4106 11.415C12.3169 11.2275 11.5725 9.39938 11.2688 8.655C10.9706 7.9275 10.6594 8.02875 10.4306 8.01562C10.2131 8.00438 9.9675 8.00438 9.72188 8.00438C9.47625 8.00438 9.07125 8.09812 8.73188 8.4675C8.3925 8.83687 7.43063 9.73875 7.43063 11.5669C7.43063 13.395 8.76 15.1594 8.9475 15.4106C9.135 15.6562 11.5669 19.4119 15.2925 21.0188C16.1775 21.3994 16.8694 21.6281 17.4075 21.8044C18.2981 22.0856 19.1063 22.0444 19.7456 21.9506C20.46 21.8456 21.9431 21.0544 22.2544 20.1863C22.5656 19.3181 22.5656 18.5756 22.4719 18.4219C22.3838 18.2569 22.1381 18.165 21.7631 17.9756L21.7612 17.9775Z" fill="white" />
@@ -107,7 +132,7 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
                                 }
                                 {
                                     contact.email ?
-                                        <div className={navStyles.contact_text_item}>
+                                        <div className={`${navStyles.contact_text_item} ${lang == 'en' ? navStyles.en : ''}`}>
                                             <Link href={`mailto:${contact.email}`}>
                                                 <a>
                                                     <div className={navStyles.icon}>
@@ -125,7 +150,7 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
                                 }
                                 {
                                     contact.location ?
-                                        <div className={navStyles.contact_text_item}>
+                                        <div className={`${navStyles.contact_text_item} ${lang == 'en' ? navStyles.en : ''}`}>
                                             <div className={navStyles.icon}>
                                                 <svg height="27" viewBox="0 0 21 27" fill="none">
                                                     <path d="M10.2149 24C10.2149 24 2 17.4 2 10.8C2 5.3 6.10747 2 10.2149 2C14.3224 2 18.4299 5.3 18.4299 10.8C18.4299 17.4 10.2149 24 10.2149 24ZM10.2149 14.1C11.9165 14.1 13.2956 12.6227 13.2956 10.8C13.2956 8.9773 11.9165 7.5 10.2149 7.5C8.51343 7.5 7.13434 8.9773 7.13434 10.8C7.13434 12.6227 8.51343 14.1 10.2149 14.1Z" stroke="#E0E0E0" strokeWidth="4" />
@@ -139,9 +164,14 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
                                 }
                             </div>
                         </div>
-                        <div className={navStyles.content_item}>
-                            <h3 className={navStyles.title}>روابط مهمه</h3>
-                            <ul dir="rtl">
+                        <div className={`${navStyles.content_item} ${lang == 'en' ? navStyles.en : ''}`}>
+                            {
+                                lang == 'ar' ?
+                                    <h3 className={navStyles.title}>روابط مهمه</h3>
+                                    :
+                                    <h3 className={navStyles.title}>Important Links</h3>
+                            }
+                            <ul dir={lang == 'ar' ? 'rtl' : 'ltr'}>
                                 {
                                     listfooterLinks.map(item => (
 
@@ -165,7 +195,12 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
                     </div>
                 </div>
                 <div className={navStyles.copyrights}>
-                    <p className={navStyles.text}>جميع الحقوق محفوظه</p>
+                    {
+                        lang == 'ar' ?
+                            <p className={navStyles.text}>جميع الحقوق محفوظه</p>
+                            :
+                            <p className={navStyles.text}>All rights are save</p>
+                    }
                     <ul className={navStyles.social}>
                         {
                             social.map((item) => (

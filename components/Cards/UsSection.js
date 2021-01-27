@@ -2,25 +2,24 @@ import { useEffect, useState } from 'react';
 import Button from '../Button/Button';
 import Styles from './UsCard.module.css';
 
-const UsCard = () => {
+const UsCard = ({lang, flag}) => {
     const [data, setdata] = useState([]);
-    const [convert, setconvert] = useState(false);
 
     useEffect(() => {
         async function loadData() {
             if (window.localStorage.getItem('usdataTime') != null) {
-                if (new Date(window.localStorage.getItem('usdataTime')).getHours() + 1 < new Date().getHours()) {
+                if (new Date(window.localStorage.getItem('usdataTime')).getMinutes() + 5 < new Date().getMinutes()) {
                     window.localStorage.removeItem('usdata');
                     window.localStorage.removeItem('usdataTime');
                 }
             }
-            if (window.localStorage.getItem('usdata') != null) {
+            if (window.localStorage.getItem('usdata') != null && !flag) {
                 setdata(JSON.parse(window.localStorage.getItem('usdata')))
             } else {
                 const us = await fetch('https://swagger.city-edge-developments.com/api/Home/GetVideoSection', {
                     method: "get",
                     headers: {
-                        'LanguageCode': 'ar'
+                        'LanguageCode': lang == 'ar' ? 'ar' : 'en'
                     }
                 })
                 const usdata = await us.json()
@@ -31,7 +30,7 @@ const UsCard = () => {
         }
 
         loadData();
-    }, []);
+    }, [flag]);
     useEffect(() => {
         data && data.isVideo ? document.querySelector('#video').innerHTML = data.videoLink : ''
     }, [data]);
@@ -41,10 +40,10 @@ const UsCard = () => {
             <>
                 <div className="pc">
                     <section className={Styles.us}>
-                        <div className={Styles.content}>
+                        <div className={`${Styles.content} ${lang == 'en' ? Styles.en : ''}`}>
                             <h3>{data.title}</h3>
                             <p>{data.description}</p>
-                            <Button path={data.link ? data.link : '/'} text='المزيد' />
+                            <Button path={data.link ? data.link : '/'} text={`${lang == 'en' ? 'More' : 'المزيد'}`} />
                         </div>
                         <div className={Styles.img} id="video">
                             {
@@ -65,7 +64,7 @@ const UsCard = () => {
                 </div>
                 <div className="mob">
                     <section className={Styles.us}>
-                        <div className={Styles.content}>
+                        <div className={`${Styles.content} ${lang == 'en' ? Styles.en : ''}`}>
                             <h3>{data.title}</h3>
                             <div className={Styles.img} id="video">
                                 {
@@ -83,7 +82,7 @@ const UsCard = () => {
                                 }
                             </div>
                             <p>{data.description}</p>
-                            <Button path={data.link ? data.link : '/'} text='المزيد' />
+                            <Button path={data.link ? data.link : '/'} text={`${lang == 'en' ? 'More' : 'المزيد'}`} />
                         </div>
                     </section>
                 </div>

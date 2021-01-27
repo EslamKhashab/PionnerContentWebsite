@@ -70,6 +70,9 @@
     width: 100%;
     margin-top: 0.3rem;
 }
+.blogName.en {
+    text-align: left;
+}
 
 .showBlog {
     color: var(--main-orange);

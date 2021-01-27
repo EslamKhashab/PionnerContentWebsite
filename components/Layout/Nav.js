@@ -1,7 +1,7 @@
 import navStyles from './Layout.module.css'
 import Link from 'next/link';
 
-function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, whatssApp, logo }) {
+function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, whatssApp, logo, lang, setLang, setFlag }) {
     if (navData.length) {
         return (
             <div className={navStyles.navbarMain}>
@@ -9,14 +9,14 @@ function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, 
                     <div className={navStyles.upCont}>
 
                         <div className={navStyles.other}>
-                            {/* <div className={navStyles.lang}>
-                                <div className={navStyles.en}>
+                            <div className={` ${navStyles.lang} ${lang == 'en' ? navStyles.en : ''}`}>
+                                <div className={`${navStyles.en} ${lang == 'en' ? navStyles.disable : ''}`} onClick={() => lang == 'ar' ? (setLang('en'), setFlag(true), document.cookie = "lang=en" ): ''}>
                                     <p>English</p>
                                 </div>
-                                <div className={navStyles.ar}>
+                                <div className={`${navStyles.ar} ${lang == 'ar' ? navStyles.disable : ''}`} onClick={() => lang == 'en' ? (setLang('ar'), setFlag(true), document.cookie = "lang=ar"): ''}>
                                     <p>العربيه</p>
                                 </div>
-                            </div> */}
+                            </div>
                             <div className={navStyles.social}>
                                 <ul>
                                     {
@@ -93,7 +93,7 @@ function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, 
                             {
                                 contact.hotline != "" ?
 
-                                    <div className={navStyles.contactElem}>
+                                    <div className={`${navStyles.contactElem} ${lang == 'en' ? navStyles.en : ''}`}>
                                         <Link href={`tel:${contact.hotline}`}>
                                             <a>
                                                 <p>{contact.hotline}</p>
@@ -117,7 +117,7 @@ function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, 
                             </div> */}
                             {
                                 contact.email ?
-                                    <div className={navStyles.contactElem}>
+                                    <div className={`${navStyles.contactElem} ${lang == 'en' ? navStyles.en : ''}`}>
                                         <Link href={`mailto:${contact.email}`}>
                                             <a>
                                                 <p>{contact.email}</p>
@@ -151,7 +151,7 @@ function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, 
                                     <div className={navStyles.NavList}>
                                         {
                                             listItem.cities.map(item => (
-                                                <Link href={`/projects/${listItem.isCommercial ? 'commerial' : 'noncommerial'}/${item.name.replace(' ','_')}`} key={item.id}>
+                                                <Link href={`/projects/${listItem.propertyUrl}/${item.name.replace(' ', '-')}`} key={item.id}>
                                                     <div className={navStyles.NavListItem} key={item.id}>{item.name}</div>
                                                 </Link>
                                             ))
@@ -162,15 +162,28 @@ function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, 
                         }
                         <li>
                             <Link href="/blogs">
-                                <a>المدونة</a>
+                                {
+                                    lang == 'ar' ?
+                                        <a>المدونة</a>
+                                        :
+                                        <a>Blogs</a>
+                                }
                             </Link>
                         </li>
                     </ul>
                     <div className={navStyles.contactButton}>
                         <a href="#footer">
-                            <button>
-                                إتصل بنا
+                            {
+                                lang == 'ar' ?
+
+                                    <button>
+                                        إتصل بنا
                             </button>
+                                    :
+                                    <button>
+                                        Contact Us
+                            </button>
+                            }
                         </a>
                     </div>
                     <div className={navStyles.burger} onClick={() => setBurgerVisability(!burgerVisability)}>
