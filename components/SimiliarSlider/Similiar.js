@@ -22,7 +22,7 @@ const Similiar = ({ list, lang }) => {
                         list && list.map((dev, idx) => {
                             return (
                                 <div className={realstyle.RealeStateCard} key={idx}>
-                                    <Link href={`/projects/${dev.propertyUrl}/${dev.cityName ? dev.cityName.replace(' ', '-') : dev.name.replace(' ', '-')}/${dev.url}`} target="_blank">
+                                    <Link href={`/project/${dev.url}`} target="_blank">
                                         <div className={realstyle.RealeStateWrapper}>
                                             <div className="pc">
                                                 <img className={realstyle.RealeStateImg} src={dev.pcImage} loading="lazy" />
@@ -38,7 +38,7 @@ const Similiar = ({ list, lang }) => {
                                         </Link>
                                     </div>
                                     <div className={realstyle.RealeStateInfo}>
-                                        <Link href={`/projects/${dev.propertyUrl}/${dev.cityName ? dev.cityName.replace(' ', '-') : dev.name.replace(' ', '-')}/${dev.url}`} target="_blank">
+                                        <Link href={`/project/${dev.url}`} target="_blank">
                                             <a>
                                                 <h3 className={`${realstyle.projectName} ${lang == 'en' ? realstyle.en : ''}`}>{dev.name}</h3>
                                                 {

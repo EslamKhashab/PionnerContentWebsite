@@ -143,7 +143,7 @@ function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, 
                             </a>
                         </Link>
                     </div>
-                    <ul className={navStyles.navElem}>
+                    <ul className={`${navStyles.navElem} ${lang == 'en' ? navStyles.en : ''}`}>
                         {
                             navData.map((listItem) => (
                                 <li key={listItem.id}>

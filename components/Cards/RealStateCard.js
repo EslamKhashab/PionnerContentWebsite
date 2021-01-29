@@ -16,7 +16,7 @@ export default function RealStateCard({ project, lang }) {
         <>
             <div className={`${styles.RealeStateCard} blogsProjectsListingItem`}>
                 <div className={styles.RealeStateInfo}>
-                    <Link href={`/projects/${project.propertyUrl}/${project.cityName.replace(' ', '-')}/${project.url}`} target="_blank">
+                    <Link href={`/project/${project.url}`} target="_blank">
                         <a>
                             <div className={` ${styles.RealeStateWrapper} blogsProjectsListingItemWrapper`}>
                                 <div className={styles.imageBg + " imageBg"}>

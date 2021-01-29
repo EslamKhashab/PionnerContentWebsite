@@ -1,8 +1,8 @@
-import styles from '../../Projects.module.css'
-import breadcrump from '../../../../components/list/Projects.module.css';
-import CollapseDev from '../../../../components/Cards/CollapseDev';
-import MiniSlider from '../../../../components/sliders/MiniSlider';
-import Similiar from '../../../../components/SimiliarSlider/Similiar';
+import styles from '../projects/Projects.module.css'
+import breadcrump from '../../components/list/Projects.module.css';
+import CollapseDev from '../../components/Cards/CollapseDev';
+import MiniSlider from '../../components/sliders/MiniSlider';
+import Similiar from '../../components/SimiliarSlider/Similiar';
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
