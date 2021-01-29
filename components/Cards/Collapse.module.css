@@ -45,7 +45,7 @@
 }
 .question.en h3::before {
     left: auto;
-    right: 3.6%;
+    right: 0;
 }
 .active h3::before {
     transform: translate(-2%, -50%) rotate(0deg);
@@ -64,7 +64,7 @@
 }
 .question.en h3::after {
     left: auto;
-    right: 5%;
+    right: 4.3%;
 }
 .active h3::after {
     transform: translate(-50%, -50%) rotate(-90deg);
@@ -74,6 +74,10 @@
     .question h3 {
         font-size: 1rem;
         padding-left: 1rem;
+    }
+    .question.en h3 {
+        padding-left: 0;
+        padding-right: 1rem;
     }
     .answer p {
         font-size: small;
