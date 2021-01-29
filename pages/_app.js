@@ -225,7 +225,7 @@ function MyApp({ Component, pageProps }) {
           <Chat callOpen={open} lang={lang} />
           <Component {...pageProps} lang={lang} flag={flag} />
         </div>
-        <Footer contact={contact} social={social} whatssApp={whatssApp} listfooterLinks={listfooterLinks} footerUsObj={footerUsObj} whatssApp={whatssApp} logo={mylogo.siteLogo} lang={lang} />
+        <Footer contact={contact} social={social} whatssApp={whatssApp} listfooterLinks={listfooterLinks} footerUsObj={footerUsObj} whatssApp={whatssApp} logo={mylogo.footerLogo} lang={lang} />
       </div>
     )
   } else {

@@ -284,13 +284,14 @@
 .tags {
     display: flex;
     margin-top: 3rem;
-    /* justify-content: center; */
+    flex-wrap: wrap;
 }
 .tag {
     position: relative;
     color: #fff;
     padding: 0.5rem 1rem;
     margin-left: 1rem;
+    margin-top: 0.7rem;
 }
 .tag span {
     z-index: 2;
@@ -356,6 +357,12 @@
     }
     .devimg img {
         box-shadow: none;
+    }
+    .tags {
+        flex-direction: column;
+    }
+    .tag {
+        align-self: start;
     }
 }
 

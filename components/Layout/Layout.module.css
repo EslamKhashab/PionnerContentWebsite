@@ -753,7 +753,6 @@
     margin: 0.5rem 0;
     cursor: pointer;
 }
-
 .contact_text_item a {
     display: flex;
     align-content: center;
@@ -763,10 +762,12 @@
 .contact_text_item p {
     margin: 0;
     margin-right: 1rem;
+    direction: rtl;
 }
 .contact_text_item.en p {
     margin: 0;
     margin-left: 1rem;
+    direction: ltr;
 }
 
 .contact_text_item .icon {
