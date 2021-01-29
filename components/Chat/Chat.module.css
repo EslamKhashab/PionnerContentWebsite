@@ -135,4 +135,7 @@
         bottom: 0;
         height: 100%;
     }
+    .chat_form.en {
+        right: 0;
+    }
 }
