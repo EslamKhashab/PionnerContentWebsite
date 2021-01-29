@@ -86,7 +86,7 @@ const Blog = ({ lang }) => {
             }
         } else {
             seterr(true)
-            setErrMsg({ type: 'name',  msg: lang == 'ar' ? 'خطأ فى بيانات الاسم' : 'invaild name' });
+            setErrMsg({ type: 'name', msg: lang == 'ar' ? 'خطأ فى بيانات الاسم' : 'invaild name' });
             setTimeout(() => {
                 seterr(false)
             }, 2000);
@@ -140,6 +140,9 @@ const Blog = ({ lang }) => {
     }, [data]);
 
     if (data) {
+        const whatssApp = () => {
+            window.open(`https://api.whatsapp.com/send?phone=2${data.whatsNumer}&text=${lang == 'en' ? 'Hello I have an inquiry about' : 'مرحبا لدي استفسار عن' } ${url}`)
+        }
         return (
             <>
                 <Head>
@@ -154,10 +157,10 @@ const Blog = ({ lang }) => {
                     <meta property="og:description" content={data.metatagDescription ? data.metatagDescription : ''} />
                     <meta property="og:image" content={img ? img : ''} />
                     {
-                        !data.isActive ? 
-                        <meta name="robots" content="noindex,nofollow"/>
-                        :
-                        ''
+                        !data.isActive ?
+                            <meta name="robots" content="noindex,nofollow" />
+                            :
+                            ''
                     }
                 </Head>
                 <main className={styles.main} dir={lang == 'ar' ? 'rtl' : 'ltr'}>
@@ -177,6 +180,26 @@ const Blog = ({ lang }) => {
                                 <div id="text"></div>
                                 {
                                     data.description && convert(data.description)
+                                }
+                                {
+                                    lang == 'ar' ?
+                                        <div className={styles.list_content_item} id="تواصل_معنا">
+                                            <h3>تواصل معنا</h3>
+                                            <p>
+                                                إتصل الان: <span className={styles.span}><a href={`tel:${data.phone}`}>{data.phone}</a></span>
+                                                <br />
+                                    او عبر الواتساب من<span className={styles.span} onClick={whatssApp}> هنا </span>
+                                            </p>
+                                        </div>
+                                        :
+                                        <div className={styles.list_content_item} id="contact_us">
+                                            <h3>Contact Us</h3>
+                                            <p>
+                                                Call us now: <span className={styles.span}><a href={`tel:${data.phone}`}>{data.phone}</a></span>
+                                                <br />
+                                    or using whatsApp from <span className={styles.span} onClick={whatssApp}> here </span>
+                                            </p>
+                                        </div>
                                 }
                             </div>
                             <div className="share">

@@ -165,11 +165,7 @@ export default function project({ lang }) {
 
     if (data) {
         const whatssApp = () => {
-            if (Object.keys(link).length === 0 && link.constructor === Object) {
-                window.open(`https://api.whatsapp.com/send?phone=2${contact.mobileNumber}&text=مرحبا لدي استفسار عن`)
-            } else {
-                window.open(`https://api.whatsapp.com/send?phone=2${contact.mobileNumber}&text=مرحبا لدي استفسار عن ${Object.values(link)}`)
-            }
+            window.open(`https://api.whatsapp.com/send?phone=2${data.whatsNumer}&text=${lang == 'en' ? 'Hello I have an inquiry about' : 'مرحبا لدي استفسار عن'} ${url}`)
         }
         return (
             <>
