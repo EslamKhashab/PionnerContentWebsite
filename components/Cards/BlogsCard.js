@@ -15,10 +15,10 @@ export default function BlogsCard({ blog, listing, lang }) {
                             <div className="mob">
                                 <img src={blog.mobileImage ? blog.mobileImage : blog.pcImage ? blog.pcImage : ''} alt="" loading="lazy" />
                             </div>
-                            {
+                            {/* {
                                 listing == 'insideblog' ? '' :
                                     <div className={styles.overLay}></div>
-                            }
+                            } */}
                         </div>
                     </div>
                     <h3 className={`${styles.blogName} ${lang == 'en' ? styles.en : ''}`}>{blog.name}</h3>

@@ -13,7 +13,8 @@
 }
 .aside {
     position: sticky;
-    top: 120px;
+    /* top: 120px; */
+    top: 10px;
     z-index: 1;
 }
 .blog_cont .aside {
