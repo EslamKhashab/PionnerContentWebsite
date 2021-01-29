@@ -185,7 +185,7 @@ export default function project({ lang }) {
                     <meta property="og:description" content={data.metatagDescription ? data.metatagDescription : ''} />
                     <meta property="og:image" content={img ? img : ''} />
                     {
-                        data.isActive ? 
+                        !data.isActive ? 
                         <meta name="robots" content="noindex,nofollow"/>
                         :
                         ''
