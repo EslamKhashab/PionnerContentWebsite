@@ -1,7 +1,7 @@
 import navStyles from './Layout.module.css'
 import Link from 'next/link';
 
-function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, whatssApp, logo, lang, setLang, setFlag }) {
+function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, whatssApp, logo, lang, setLang, setFlag,changeLang }) {
     if (navData.length) {
         return (
             <div className={navStyles.navbarMain}>
@@ -10,10 +10,10 @@ function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, 
 
                         <div className={navStyles.other}>
                             <div className={` ${navStyles.lang} ${lang == 'en' ? navStyles.en : ''}`}>
-                                <div className={`${navStyles.en} ${lang == 'en' ? navStyles.disable : ''}`} onClick={() => lang == 'ar' ? (setLang('en'), setFlag(true), document.cookie = "lang=en" ): ''}>
+                                <div className={`${navStyles.en} ${lang == 'en' ? navStyles.disable : ''}`} onClick={() => lang == 'ar' ? ( setFlag(true),changeLang(), document.cookie = "lang=en" ): ''}>
                                     <p>English</p>
                                 </div>
-                                <div className={`${navStyles.ar} ${lang == 'ar' ? navStyles.disable : ''}`} onClick={() => lang == 'en' ? (setLang('ar'), setFlag(true), document.cookie = "lang=ar"): ''}>
+                                <div className={`${navStyles.ar} ${lang == 'ar' ? navStyles.disable : ''}`} onClick={() => lang == 'en' ? ( setFlag(true),changeLang(), document.cookie = "lang=ar"): ''}>
                                     <p>العربيه</p>
                                 </div>
                             </div>

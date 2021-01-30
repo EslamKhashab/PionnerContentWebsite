@@ -34,6 +34,13 @@ function MyApp({ Component, pageProps }) {
       setLang('ar');
     }
   }, []);
+  const changeLang = () => {
+    // https://pioneerproperty.net
+      // router.push('/');
+      // window.location.reload();
+      window.localStorage.clear();
+      window.location = 'https://pioneerproperty.net'
+  }
 
   useEffect(() => {
     async function loadData() {
@@ -208,19 +215,19 @@ function MyApp({ Component, pageProps }) {
             <div className="call_button" onClick={() => setOpen(!open)}>
               <span>
                 {
-                  lang == 'ar' ? 
-                'تواصل معنا'
-                :
-                'contact us'
+                  lang == 'ar' ?
+                    'تواصل معنا'
+                    :
+                    'contact us'
                 }
-                </span>
+              </span>
               <div className="border"></div>
             </div>
           </div>
-  
-          <Nav burgerVisability={burgerVisability} setBurgerVisability={setBurgerVisability} contact={contact} navData={navData} social={social} whatssApp={whatssApp} logo={mylogo.siteLogo} lang={lang} setLang={setLang} setFlag={setFlag} flag={flag} />
+
+          <Nav burgerVisability={burgerVisability} setBurgerVisability={setBurgerVisability} contact={contact} navData={navData} social={social} whatssApp={whatssApp} logo={mylogo.siteLogo} lang={lang} setLang={setLang} setFlag={setFlag} flag={flag} changeLang={changeLang} />
           <MobNav burgerVisability={burgerVisability} setBurgerVisability={setBurgerVisability} contact={contact} navData={navData} social={social} whatssApp={whatssApp} />
-  
+
           {/* arrow up */}
           <Chat callOpen={open} lang={lang} />
           <Component {...pageProps} lang={lang} flag={flag} />

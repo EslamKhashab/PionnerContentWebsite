@@ -33,12 +33,12 @@ const HomeRealState = ({lang, flag}) => {
             }
         }
         loadData();
-    }, [flag]);
+    }, [flag,lang]);
     useEffect(() => {
 
         if (nonRes.length) {
             setShowcase(nonRes[0].name);
-            nonRes.map(item => {
+            nonRes.map((item,ind) => {
                 let link = 'https://swagger.pioneer.city-edge-developments.com/api/Home/ListHomeProjects/' + item.id + '?IsCommercial=false';
                 let listItem = fetch(link, {
                     method: "get",

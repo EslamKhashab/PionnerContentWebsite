@@ -33,7 +33,7 @@ const HomeRealState2 = ({lang, flag}) => {
       }
     }
     loadData();
-  }, [flag]);
+  }, [flag,lang]);
   useEffect(() => {
 
     nonRes.length && setShowcase(nonRes[0].name)
