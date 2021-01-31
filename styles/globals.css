@@ -607,9 +607,20 @@ p {
   margin-top: 0px;
 }
 
+.ql-size-large {
+  font-size: 1.5em;
+}
+.ql-editor .ql-size-huge {
+  font-size: 2.5em;
+}
+
+
 @media only screen and (max-width: 767px) {
   .notfound .notfound-404 {
     height: 142px;
+  }
+  .ql-size-large, .ql-editor .ql-size-huge {
+    font-size: inherit;
   }
 
   .notfound .notfound-404 h1 {

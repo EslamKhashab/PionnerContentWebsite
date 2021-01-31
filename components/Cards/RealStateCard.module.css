@@ -4,6 +4,7 @@
     width: 46%;
     margin: 2%;
     margin-bottom: 1rem;
+    cursor: pointer;
 }
 
 @media (min-width:1215px) {

@@ -1,12 +1,12 @@
-import styles from '../../projects/Projects.module.css'
-import MiniSlider from '../../../components/sliders/MiniSlider';
-import BlogsCard from '../../../components/Cards/BlogsCard';
-import RealStateCard from '../../../components/Cards/RealStateCard';
+import styles from '../projects/Projects.module.css'
+import MiniSlider from '../../components/sliders/MiniSlider';
+import BlogsCard from '../../components/Cards/BlogsCard';
+import RealStateCard from '../../components/Cards/RealStateCard';
 import Link from 'next/link';
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
-import breadcrump from '../../../components/list/Projects.module.css';
+import breadcrump from '../../components/list/Projects.module.css';
 
 const Blog = ({ lang }) => {
     const router = useRouter();

@@ -5,7 +5,7 @@ export default function BlogsCard({ blog, listing, lang }) {
 
     return (
         <>
-            <Link href={`/blogs/blog/${blog.url}`} target="_blank">
+            <Link href={`/blog/${blog.url}`} target="_blank">
                 <a className={`${styles.outerLink} ${listing == 'insideblog' ? styles.bloglistinginblog : ''}`}>
                     <div className={styles.BlogCard}>
                         <div className={styles.bg}>

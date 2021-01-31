@@ -10,9 +10,11 @@
 }
 .us .content {
     width: 49%;
+    direction: rtl;
 }
-.us .content.en {
+.content.en {
     text-align: left;
+    direction: ltr;
 }
 .us .img {
     width: 49%;
@@ -21,7 +23,7 @@
     width: 100%;
     height: -webkit-fill-available;
     height: -moz-available;
-    max-height: 300px;
+    min-height: 270px;
 }
 .us h3 {
     font-size: 1.5rem;

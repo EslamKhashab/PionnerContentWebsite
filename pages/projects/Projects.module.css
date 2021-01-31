@@ -228,6 +228,8 @@
     min-height: 300px;
     max-height: -webkit-fill-available; */
     margin-top: 2rem;
+    min-height: 280px;
+    max-height: 300px;
 }
 .list_content {
     margin-top: 2rem;    

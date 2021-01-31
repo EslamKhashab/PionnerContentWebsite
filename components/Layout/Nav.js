@@ -9,14 +9,14 @@ function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, 
                     <div className={navStyles.upCont}>
 
                         <div className={navStyles.other}>
-                            <div className={` ${navStyles.lang} ${lang == 'en' ? navStyles.en : ''}`}>
+                            {/* <div className={` ${navStyles.lang} ${lang == 'en' ? navStyles.en : ''}`}>
                                 <div className={`${navStyles.en} ${lang == 'en' ? navStyles.disable : ''}`} onClick={() => lang == 'ar' ? ( setFlag(true),changeLang(), document.cookie = "lang=en" ): ''}>
                                     <p>English</p>
                                 </div>
                                 <div className={`${navStyles.ar} ${lang == 'ar' ? navStyles.disable : ''}`} onClick={() => lang == 'en' ? ( setFlag(true),changeLang(), document.cookie = "lang=ar"): ''}>
                                     <p>العربيه</p>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className={navStyles.social}>
                                 <ul>
                                     {
