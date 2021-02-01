@@ -372,9 +372,9 @@ export default function project({ lang }) {
                         <div className={styles.aside_container}>
                             <div className={`${styles.aside} ${lang == 'en' ? styles.en : ''}`}>
 
-                                <Link href={`tel:${data.phone ? data.phone : localphone}`}>
+                                <Link href={`tel:${localphone}`}>
                                     <a className={styles.phone}>
-                                        <span>{data.phone ? data.phone : localphone}</span>
+                                        <span>{localphone}</span>
                                         <svg height="24" viewBox="0 0 23 24" fill="none">
                                             <path d="M17.1713 1C18.6864 1 20.8901 2.67545 21.441 3.79242C22.2284 5.38881 22.0984 6.01595 21.5787 7.70182C20.8901 9.93576 18.871 13.8955 16.0695 16.6376C12.0753 20.547 8.35662 22.2224 6.70386 22.7809C5.0511 23.3394 3.26061 22.7809 2.15877 21.6639C1.05693 20.547 -0.0449104 19.43 1.19466 17.7545C2.07304 16.5673 3.35263 15.1947 4.91337 14.4036C6.33252 13.6843 7.17828 13.9461 7.66797 14.9621C7.93868 15.5238 8.02276 16.5996 8.21889 17.1961C8.46634 17.9486 9.45846 17.7545 10.5603 17.1961C11.6152 16.6614 14.279 14.4036 16.4827 11.0527C17.848 8.97661 15.6657 8.96315 14.279 8.2603C13.1772 7.70182 12.8356 6.41728 13.7281 4.90939C15.3809 2.11697 15.9318 1 17.1713 1Z" fill="#E0E0E0" stroke="black" strokeWidth="0.0833333" />
                                         </svg>
