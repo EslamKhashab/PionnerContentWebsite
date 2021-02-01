@@ -620,7 +620,7 @@ p {
     height: 142px;
   }
   .ql-size-large, .ql-editor .ql-size-huge {
-    font-size: inherit;
+    font-size: 1.5em;
   }
 
   .notfound .notfound-404 h1 {
