@@ -281,16 +281,25 @@ export default function project({ lang }) {
                                 }
                                 <div className={styles.links_container}>
                                     {
-                                        data.descriptionList && data.descriptionList.map((item, idx) => (
-                                            <a href={`#${item.tilte.replace(' ', '_')}`} key={idx}>{item.tilte}</a>
+                                        data.indexes && data.indexes.map((item, idx) => (
+                                            <a href={`#${item.replace(' ', '_')}`} key={idx}>{item}</a>
                                         ))
                                     }
+
                                     {
                                         lang == 'ar' ?
                                             <a href="#تواصل_معنا">تواصل معنا</a>
                                             :
                                             <a href="#contact_us">Contact Us</a>
                                     }
+                                    
+                                     {/*
+                                        data.projectServices && data.projectServices.map((item, idx) => (
+                                            <a href={`#${item.tilte.replace(' ', '_')}`} key={idx}>{item.tilte}</a>
+                                        ))
+
+                                    */}
+                                   
                                 </div>
                             </div>
                             <div className={styles.list_content}>
