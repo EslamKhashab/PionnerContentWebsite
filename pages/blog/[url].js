@@ -184,7 +184,7 @@ const Blog = ({ lang }) => {
                                 {
                                     lang == 'ar' ?
                                         <div className={styles.list_content_item} id="تواصل_معنا">
-                                            <h3>تواصل معنا</h3>
+                                            <h2><strong>تواصل معنا</strong></h2>
                                             <p>
                                                 إتصل الان: <span className={styles.span}><a href={`tel:${data.phone}`}>{data.phone}</a></span>
                                                 <br />
@@ -193,7 +193,7 @@ const Blog = ({ lang }) => {
                                         </div>
                                         :
                                         <div className={styles.list_content_item} id="contact_us">
-                                            <h3>Contact Us</h3>
+                                            <h2><strong>Contact Us</strong></h2>
                                             <p>
                                                 Call us now: <span className={styles.span}><a href={`tel:${data.phone}`}>{data.phone}</a></span>
                                                 <br />
