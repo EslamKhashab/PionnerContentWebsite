@@ -87,23 +87,12 @@ const Chat = ({ callOpen, lang }) => {
     }
     useEffect(() => {
         setTimeout(() => {
-            setTime(10000);
+            setTime(0);
             setclose(false);
-        }, 10000);
+        }, 0);
     }, []);
-    useEffect(() => {
-        if (time == 10000) {
-            setTime(time + 60000);
-        } else if (time >= 70000) {
-            setTimeout(() => {
-                setclose(false)
-                setTime(time + 30000)
-            }, 30000);
-        }
-    }, [time]);
-    useEffect(() => {
-        setclose(callOpen)
-    }, [callOpen]);
+    
+
     useEffect(() => {
         if (success) {
             setTimeout(() => {

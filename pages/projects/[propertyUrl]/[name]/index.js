@@ -43,7 +43,9 @@ const ProjectsListing = ({ lang }) => {
     return (
         <>
             <Head>
-                <title>{name}</title>
+                <title>{data.metatagTitle}</title>
+                <meta name="description" content={data.metatagDescription ? data.metatagDescription : ''} />
+                <meta name="keywords" content={data.keyword} />
                 <link rel="icon" href="/logo.ico" />
             </Head>
             <main className={mainStyle.main}>
@@ -63,7 +65,7 @@ const ProjectsListing = ({ lang }) => {
                 <div className={commonStyles.RealeStateContainer}>
                     <div className={`${commonStyles.grid} ${lang == 'en' ? commonStyles.en : ''}`}>
                         {
-                            data ? data.items && data.items.map((project) => (
+                            data.items ? data.items.items && data.items.items.map((project) => (
                                 <RealStateCard project={project} key={project.id} lang={lang} />
                             )) :
                                 <div className="noItems">
