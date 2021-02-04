@@ -124,6 +124,7 @@
 }
 
 .navbarMain .up .other .social ul li {
+    
     display: flex;
     align-items: center;
     margin: 0 0.5rem;
@@ -207,6 +208,7 @@
 }
 
 .navbarMain .sticky .navElem {
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;

@@ -246,7 +246,7 @@ export default function project({ lang }) {
                                     <tr>
                                         {
                                             lang == 'ar' ?
-                                                <td className={styles.listing_title}>مساحة المشروع</td>
+                                                <td className={styles.listing_title}>مساحات المشروع</td>
                                                 :
                                                 <td className={styles.listing_title}>Project Size</td>
                                         }

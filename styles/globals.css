@@ -63,7 +63,6 @@ img {
 }
 
 ul {
-  list-style: none;
   padding: 0;
 }
 
@@ -626,4 +625,5 @@ p {
   .notfound .notfound-404 h1 {
     font-size: 112px;
   }
+
 }
