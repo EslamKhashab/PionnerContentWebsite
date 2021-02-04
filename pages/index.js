@@ -13,17 +13,33 @@ import HomeBlogs from "../components/home/HomeBlogs";
 const Home = ({lang, flag}) => {
 
   return (
+    
     <div className={styles.container}>
+
+     { lang=='ar'?
       <Head>
-        <title>Pioneer</title>
+         
+      
+        <title>بايونير العقارية - شاليهات وشقق وفيلات ومكاتب للبيع</title>
+        <meta name="description" content="تسويق وبيع شاليهات وشقق وفيلات (الساحل الشمالي - العين السخنة - العاصطة الادارية - القاهرة الجديدة - 6أكتوبر - المنصورة الجديدة)" />
+        <meta name="keywords" content="" />
+        <link rel="icon" href="/logo.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </Head>
+      :
+      <Head>
+        <title>pionner</title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
         <link rel="icon" href="/logo.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* 
                     <meta name="description" content="" />
                     <meta name="keywords" content="" />
          */}
+       
       </Head>
-
+}
       <main className={styles.main}>
 
         <HeroSlider lang={lang} flag={flag} />
