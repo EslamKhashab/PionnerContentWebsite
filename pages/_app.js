@@ -40,6 +40,7 @@ function MyApp({ Component, pageProps }) {
       // window.location.reload();
       window.localStorage.clear();
       window.location = 'https://pioneerproperty.net'
+      // window.location = 'http://localhost:3000'
   }
 
   useEffect(() => {
