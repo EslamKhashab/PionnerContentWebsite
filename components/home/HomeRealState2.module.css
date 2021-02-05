@@ -46,3 +46,9 @@
 .activeCategory{
     border-bottom:2px solid var(--text-color);
 }
+@media (max-width: 786px) {
+    .category{
+        margin: 0px 10px;
+        font-size: inherit;
+    }
+}
