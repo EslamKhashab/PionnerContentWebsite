@@ -53,12 +53,11 @@ const Home = ({lang, flag}) => {
         {/* just in case , slice the the first 6 blogs in the array */}
         <HomeBlogs lang={lang} flag={flag} />
 
-        <Developers lang={lang} flag={flag} />
+        <UsSection lang={lang} flag={flag} />
 
         <UsCard lang={lang} flag={flag} />
 
-        <UsSection lang={lang} flag={flag} />
-
+        <Developers lang={lang} flag={flag} />
       </main>
     </div>
   )

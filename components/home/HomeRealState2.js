@@ -38,7 +38,7 @@ const HomeRealState2 = ({lang, flag}) => {
 
     nonRes.length && setShowcase(nonRes[0].name)
     nonRes && nonRes.map(item => {
-      let link = 'https://swagger.pioneer.city-edge-developments.com/api/Home/ListHomeProjects/' + item.id + '?IsCommercial=true';
+      let link = 'https://swagger.pioneer.city-edge-developments.com/api/Home/ListHomeCommericailProjects/' + item.id ;
       let listItem = fetch(link, {
         method: "get",
         headers: {
