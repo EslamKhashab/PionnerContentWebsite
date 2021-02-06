@@ -305,7 +305,7 @@ export default function project({ lang }) {
                             <div className={styles.list_content}>
                                 {
                                     data.descriptionList && data.descriptionList.map((item, idx) => (
-                                        <div className={styles.list_content_item} key={idx} id={`${item.tilte.replace(' ', '_')}`}>
+                                        <div className={styles.list_content_item,'spacesofpraghph'} key={idx} id={`${item.tilte.replace(' ', '_')}`}>
                                             <h2><strong>{item.tilte}</strong></h2>
                                             <p id={`item_${idx}`}>
                                                 {/* {item.description ? convert(item.description, `item_${idx}`) : <></>} */}
