@@ -39,8 +39,8 @@ function MyApp({ Component, pageProps }) {
       // router.push('/');
       // window.location.reload();
       window.localStorage.clear();
-
-       window.location = 'http://localhost:3000'
+      window.location = 'https://pioneerproperty.net'
+       // window.location = 'http://localhost:3000'
   }
 
   useEffect(() => {
