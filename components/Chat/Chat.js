@@ -101,6 +101,10 @@ const Chat = ({ callOpen, lang }) => {
             }, 1500);
         }
     }, [success]);
+
+    useEffect(() => {
+        setclose(!close)
+    }, [callOpen]);
     return (
         <>
             <div className={`${Style.chat_form} ${lang == 'en' ? Style.en : ''} ${close ? Style.not_active : ''}`}>
