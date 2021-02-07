@@ -81,7 +81,7 @@
     }
     .question.en h3::before {
         left: auto;
-        right: 0;
+        right: 0.2rem;
     }
     .question.en h3::after {
         left: auto;

@@ -88,7 +88,13 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
                                     :
                                     <h3 className={navStyles.title}>About Us</h3>
                             }
-                            <p>{footerUsObj.description}</p>
+                            {
+                                lang == 'ar' ?
+                                <p dir="rtl">{footerUsObj.description}</p>
+                                :
+                                <p dir="ltr">{footerUsObj.description}</p>
+
+                            }
                         </div>
                         <div className={`${navStyles.content_item} ${lang == 'en' ? navStyles.en : ''}`}>
                             {

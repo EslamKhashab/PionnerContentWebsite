@@ -69,13 +69,13 @@ const ProjectsListing = ({ lang }) => {
                                 <RealStateCard project={project} key={project.id} lang={lang} />
                             )) :
                                 <div className="noItems">
-                                    No Projects
+                                    
                                 </div>
                         }
                     </div>
                 </div>
                 {
-                    data && data.totalcount > 1 ?
+                    data.items && data.items.totalcount > 1 ?
                         <div className={`${commonStyles.swipContainer} ${lang == 'en' ? commonStyles.en : ''}`}>
                             {
                                 page < data.totalcount ?

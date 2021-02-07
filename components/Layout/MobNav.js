@@ -1,6 +1,8 @@
 import navStyles from './Layout.module.css'
 import Link from 'next/link';
 import NavCollapse from '../Cards/NavCollapse';
+var blogsEn='Blogs'
+var blogsAr='المدونة'
 
 export default function MobNav({ burgerVisability, setBurgerVisability, navData, social, lang, setLang }) {
     if (navData.length) {
@@ -23,7 +25,12 @@ export default function MobNav({ burgerVisability, setBurgerVisability, navData,
                             }
                             <li>
                                 <Link href="/blogs">
-                                    <a onClick={() => setBurgerVisability(!burgerVisability)}>المدونة</a>
+                                    <a onClick={() => setBurgerVisability(!burgerVisability)}>
+                                        {
+                                            lang=='ar'? blogsAr : blogsEn
+
+                                        }
+                                        </a>
                                 </Link>
                             </li>
                         </ul>
