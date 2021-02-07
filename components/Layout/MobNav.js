@@ -24,10 +24,13 @@ export default function MobNav({ burgerVisability, setBurgerVisability, navData,
                             }
                             <li>
                                 <Link href="/blogs">
-                                    
-                                    <a onClick={() => setBurgerVisability(!burgerVisability)}>
-                                        المدونة
-                                        </a>
+                                {
+                                    lang == 'ar' ?
+                                        <a onClick={() => setBurgerVisability(!burgerVisability)}>المدونة</a>
+                                        :
+                                        <a onClick={() => setBurgerVisability(!burgerVisability)}>Blogs</a>
+                                }
+                                 
                                 </Link>
                             </li>
                         </ul>
