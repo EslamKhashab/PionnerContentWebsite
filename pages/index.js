@@ -23,43 +23,18 @@ const Home = ({lang, flag}) => {
         <meta name="keywords" content="" />
         <link rel="icon" href="/logo.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-         {/* Google Tag Manager */}
-    <script
-        dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${nTIFQK_iIocLhcz6Fv3GAtRHXRXTbQhSGXGaznfyNko}');`,
-        }}
-    />
-    {/* End Google Tag Manager */}
-    {/* Google Tag Manager (noscript) */}
-    <noscript
-        dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${nTIFQK_iIocLhcz6Fv3GAtRHXRXTbQhSGXGaznfyNko}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-        }}
-    />
-  <script
-            dangerouslySetInnerHTML={{
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148363005-1"></script>
+<script dangerouslySetInnerHTML={{
               __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '806077823314147');
-              fbq('track', 'PageView');
-              `,
-            }}
-          />
-        <noscript>
-          <img height="1" width="1" style="display:none"
-                src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"/>
-</noscript>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148363005-1');`
+}}
+>
+</script>
+
         </Head>
       :
       <Head>
@@ -72,43 +47,19 @@ const Home = ({lang, flag}) => {
                     <meta name="description" content="" />
                     <meta name="keywords" content="" />
          */}
-         {/* Google Tag Manager */}
-    <script
-        dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${nTIFQK_iIocLhcz6Fv3GAtRHXRXTbQhSGXGaznfyNko}');`,
-        }}
-    />
-    {/* End Google Tag Manager */}
-    {/* Google Tag Manager (noscript) */}
-    <noscript
-        dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${nTIFQK_iIocLhcz6Fv3GAtRHXRXTbQhSGXGaznfyNko}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-        }}
-    />
-  <script
-            dangerouslySetInnerHTML={{
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148363005-1"></script>
+<script dangerouslySetInnerHTML={{
               __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '806077823314147');
-              fbq('track', 'PageView');
-              `,
-            }}
-          />
-        <noscript>
-          <img height="1" width="1" style="display:none"
-                src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"/>
-</noscript>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148363005-1');`
+}}
+>
+</script>
+
       </Head>
 }
 
