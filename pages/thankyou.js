@@ -1,4 +1,5 @@
 import Button from '../components/Button/Button';
+import Head from 'next/head'
 const Thankyou = ({lang}) => {
     return (
 
@@ -31,7 +32,8 @@ const Thankyou = ({lang}) => {
         </script>
         <noscript><img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"
-        /></noscript></Head>
+        /></noscript>
+        </Head>
             {
                      
                 lang == 'ar' ?
