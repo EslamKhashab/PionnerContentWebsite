@@ -22,16 +22,16 @@ const Similiar = ({ list, lang }) => {
                         list && list.map((dev, idx) => {
                             return (
                                 <div className={realstyle.RealeStateCard} key={idx}>
-                                    <Link href={`/project/${dev.url}`} target="_blank">
+                                    <a href={`/project/${dev.url}`}>
                                         <div className={realstyle.RealeStateWrapper}>
                                             <div className="pc">
-                                                <img className={realstyle.RealeStateImg} src={dev.pcImage} loading="lazy" />
+                                                <img className={realstyle.RealeStateImg} src={dev.pcImage} loading="lazy" />      
                                             </div>
                                             <div className="mob">
                                                 <img className={realstyle.RealeStateImg} src={dev.mobileImage ? dev.mobileImage : dev.pcImage} loading="lazy" />
                                             </div>
                                         </div>
-                                    </Link>
+                                    </a>
                                     <div className={realstyle.RealeStateTag}>
                                         <Link href={`/projects/${dev.propertyUrl}/${dev.cityName ? dev.cityName.replace(' ', '-') : dev.name.replace(' ', '-')}`}>
                                             <h3 className={realstyle.RealeStateCity}><span>{dev.cityName}</span></h3>

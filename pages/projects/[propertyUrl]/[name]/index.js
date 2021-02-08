@@ -26,7 +26,7 @@ const ProjectsListing = ({ lang }) => {
                     body:
                         JSON.stringify({
                             pageNumber: page,
-                            pageSize: 12
+                            pageSize: 15
                         })
                 })
                 const projects = await listProjects.json()
