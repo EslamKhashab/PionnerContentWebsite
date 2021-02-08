@@ -146,23 +146,7 @@ const Blog = ({ lang }) => {
         return (
             <>
                 <Head>
-                    <title>{data.metatagTitle ? data.metatagTitle : data.name}</title>
-                    <meta name="description" content={data.metatagDescription ? data.metatagDescription : ''} />
-                    <meta name="keywords" content={data.keyword ? data.keyword : ''} />
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                    <link rel="icon" href="/logo.ico" />
-                    <meta property="og:url" content={urllink} />
-                    <meta property="og:type" content="website" />
-                    <meta property="og:title" content={data.metatagTitle ? data.metatagTitle : data.name} />
-                    <meta property="og:description" content={data.metatagDescription ? data.metatagDescription : ''} />
-                    <meta property="og:image" content={img ? img : ''} />
-                    {
-                        !data.isActive ?
-                            <meta name="robots" content="noindex,nofollow" />
-                            :
-                            ''
-                    }
-                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148363005-1"></script>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148363005-1"></script>
 <script dangerouslySetInnerHTML={{
               __html: `
   window.dataLayer = window.dataLayer || [];
@@ -189,6 +173,23 @@ fbq('track', 'PageView');`}}>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"
 /></noscript>
+                    <title>{data.metatagTitle ? data.metatagTitle : data.name}</title>
+                    <meta name="description" content={data.metatagDescription ? data.metatagDescription : ''} />
+                    <meta name="keywords" content={data.keyword ? data.keyword : ''} />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <link rel="icon" href="/logo.ico" />
+                    <meta property="og:url" content={urllink} />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:title" content={data.metatagTitle ? data.metatagTitle : data.name} />
+                    <meta property="og:description" content={data.metatagDescription ? data.metatagDescription : ''} />
+                    <meta property="og:image" content={img ? img : ''} />
+                    {
+                        !data.isActive ?
+                            <meta name="robots" content="noindex,nofollow" />
+                            :
+                            ''
+                    }
+               
                 </Head>
                 <main className={styles.main} dir={lang == 'ar' ? 'rtl' : 'ltr'}>
                     <div className="cover">

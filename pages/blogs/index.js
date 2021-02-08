@@ -44,13 +44,7 @@ const blogsListing = ({lang}) => {
         return (
             <>
                 <Head>
-
-                    <title>Blogs</title>
-                    {/* <meta name="description" content={data.metatagDescription} />
-                    <meta name="keywords" content={data.keywords} /> */}
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                    <link rel="icon" href="/logo.ico" />
-                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148363005-1"></script>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148363005-1"></script>
 <script dangerouslySetInnerHTML={{
               __html: `
   window.dataLayer = window.dataLayer || [];
@@ -77,6 +71,12 @@ fbq('track', 'PageView');`}}>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"
 /></noscript>
+                    <title>Blogs</title>
+                    {/* <meta name="description" content={data.metatagDescription} />
+                    <meta name="keywords" content={data.keywords} /> */}
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <link rel="icon" href="/logo.ico" />
+               
                 </Head>
                 <main className={styles.main}>
                     <div className={commonStyles.bg}>
