@@ -163,7 +163,7 @@ function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, 
                         <li>
                             <Link href="/blogs">
                                 {
-                                    lang == 'ar' ?
+                                    lang === 'ar' ?
                                         <a>المدونة</a>
                                         :
                                         <a>Blogs</a>

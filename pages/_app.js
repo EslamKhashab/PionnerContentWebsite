@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }) {
       // window.location.reload();
       window.localStorage.clear();
       window.location = 'https://pioneerproperty.net'
-       // window.location = 'http://localhost:3000'
+     // window.location = 'http://localhost:3000'
   }
 
   useEffect(() => {
@@ -227,7 +227,7 @@ function MyApp({ Component, pageProps }) {
           </div>
 
           <Nav burgerVisability={burgerVisability} setBurgerVisability={setBurgerVisability} contact={contact} navData={navData} social={social} whatssApp={whatssApp} logo={mylogo.siteLogo} lang={lang} setLang={setLang} setFlag={setFlag} flag={flag} changeLang={changeLang} />
-          <MobNav burgerVisability={burgerVisability} setBurgerVisability={setBurgerVisability} contact={contact} navData={navData} social={social} whatssApp={whatssApp} />
+          <MobNav burgerVisability={burgerVisability} setBurgerVisability={setBurgerVisability} lang={lang} contact={contact} navData={navData} social={social} whatssApp={whatssApp} />
 
           {/* arrow up */}
           <Chat callOpen={open} lang={lang} />
