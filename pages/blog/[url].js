@@ -273,7 +273,7 @@ src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"
                             <div className={styles.tags}>
                                 {
                                     data.tags && data.tags.map(tag => (
-                                        <Link href={`/blogs?TagId=${tag.id}`} key={tag.id}>
+                                        <Link href={`/blogs?TagUrl=${tag.tagUrl}`} key={tag.tagUrl}>
                                             <a className={styles.tag}>
                                                 <span>#{tag.name}</span>
                                             </a>

@@ -5,19 +5,22 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+
 const blogsListing = ({lang}) => {
     const [data, setdata] = useState([]);
     // const [totalCount, setTotalCount] = useState(1);
-    const [page, setPage] = useState(0);
+    const [page, setPage] = useState(1);
     const router = useRouter();
-
+    const tagUrl= decodeURI(router.asPath.split('?')[1].split('=')[1]).replaceAll('-',' ');
     useEffect(() => {
         async function loadData() {
+            
             let link = 'https://swagger.pioneer.city-edge-developments.com/api/Blog/ListBlogHome';
             if (router.asPath.split('?')[1] != null) {
                 let tag = router.asPath.split('?')[1];
-                if (/^\d+$/.test(tag.split('=')[1])) {
-                    link = 'https://swagger.pioneer.city-edge-developments.com/api/Blog/ListBlogHome?TagId=' + tag.split('=')[1];
+                if (tag!=null) {
+                    
+                    link = 'https://swagger.pioneer.city-edge-developments.com/api/Blog/ListBlogHome?TagUrl=' + tag.split('=')[1];
                 }
             }
             // let link = 'https://swagger.pioneer.city-edge-developments.com/api/Blog/ListBlogHome?TagId=' + id;
@@ -30,7 +33,7 @@ const blogsListing = ({lang}) => {
                 body:
                     JSON.stringify({
                         pageNumber: page,
-                        pageSize: 12
+                        pageSize: 2
                     })
             })
             const blogs = await listBlogHome.json()
@@ -82,10 +85,18 @@ src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"
                     <div className={commonStyles.bg}>
                         <div className={commonStyles.RealeStateContainer}>
                             {
-                                lang == 'ar' ?
+                                tagUrl != null ?
+                                <h2 className={commonStyles.title}>{tagUrl}</h2>
+
+                                :
+
+                                lang == 'en' && tagUrl === null ?
+                                <h2 className={commonStyles.title}>Latest Articles From Pioneer</h2>
+                                :
+                                lang == 'ar' && tagUrl === null ?
                                 <h2 className={commonStyles.title}> أحدث المقالات من بايونير</h2>
                                 :
-                                <h2 className={commonStyles.title}>Latest Articles From Pioneer</h2>
+                                <h2 className={commonStyles.title}></h2>
                             }
                             <div className={`${commonStyles.grid} ${lang == 'en' ? commonStyles.en:''}`}>
                                 {
@@ -98,7 +109,7 @@ src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"
                                 data.totalcount > 1 ?
                                     <div className={`${commonStyles.swipContainer} ${lang == 'en' ? commonStyles.en : ''}`}>
                                         {
-                                            page < data.totalcount ?
+                                             data.paginationCount != 2 ?
                                                 <div className={commonStyles.left}>
                                                     <svg viewBox="0 0 20 20" fill="none">
                                                         <path d="M11.0775 5.24417L6.32167 10L11.0775 14.7558L12.2558 13.5775L8.67833 10L12.2558 6.4225L11.0775 5.24417Z" fill="white" />
@@ -111,7 +122,7 @@ src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"
                                                 </div>
                                         }
                                         {
-                                            !page ?
+                                            page === 1 ?
                                                 <div className={`${commonStyles.right} ${commonStyles.active}`}>
                                                     <svg viewBox="0 0 20 20" fill="none">
                                                         <path d="M11.0775 5.24417L6.32167 10L11.0775 14.7558L12.2558 13.5775L8.67833 10L12.2558 6.4225L11.0775 5.24417Z" fill="white" />
