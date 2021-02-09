@@ -5,7 +5,7 @@ export default function Footer({ contact, social, whatssApp, listfooterLinks, fo
     return (
         <>
             <div className={navStyles.footer_contact} id="footer">
-                <div className={navStyles.imgCont}><img src="/bg.jpg" alt="background" loading="lazy" /></div>
+                <div className={navStyles.imgCont}><img src="/bg.webp" alt="background" loading="lazy" /></div>
                 {
                     contact.email ?
                         <div className={`${navStyles.footer_contact_item} ${lang == 'en' ? navStyles.en : ''}`}>
