@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createRef } from 'react';
 import Button from '../Button/Button';
 import Styles from './UsCard.module.css';
 
 const UsCard = ({lang, flag}) => {
     const [data, setdata] = useState([]);
+    const container = createRef();
 
     useEffect(() => {
         async function loadData() {
@@ -32,7 +33,8 @@ const UsCard = ({lang, flag}) => {
         loadData();
     }, [flag]);
     useEffect(() => {
-        data && data.isVideo ? document.querySelector('#video').innerHTML = data.videoLink : ''
+        
+        data && data.isVideo ? document.querySelector('#video').innerHTML  = data.videoLink  : ''
         data && data.isVideo ? document.querySelector('#mobvideo').innerHTML = data.videoLink : ''
     }, [data]);
 
@@ -48,7 +50,7 @@ const UsCard = ({lang, flag}) => {
                         </div>
                         <div className={Styles.img} id="video">
                             {
-                                data.isVideo ? ''
+                                data.isVideo ?  <div ref={container}> '' </div>
                                     :
                                     <>
                                         <div className='pc'>
@@ -69,7 +71,7 @@ const UsCard = ({lang, flag}) => {
                             <h3>{data.title}</h3>
                             <div className={Styles.img} id="mobvideo">
                                 {
-                                    data.isVideo ? ''
+                                    data.isVideo ? <div ref={container}> '' </div>
                                         :
                                         <>
                                             <div className='pc'>
