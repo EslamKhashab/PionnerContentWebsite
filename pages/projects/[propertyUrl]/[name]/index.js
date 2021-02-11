@@ -77,9 +77,32 @@ src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"
                 <link rel="icon" href="/logo.ico" />
              
             </Head>
+            <style jsx>{`
+.cover{
+    width: 100%;
+    direction: rtl;
+    background-image: url(${data.bannerPcImage ? data.bannerPcImage : ''});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.background{
+    padding: 2rem 50px;
+    width:100%;
+    height: 100%;
+    background-color: rgba(15, 59, 124, 0.7);
+}
+@media (max-width:786px){
+    .background{
+        background-image: url(${data.bannerMobileImage ? data.bannerMobileImage : ''});
+
+        padding: 5% 5%;
+    }
+}
+            `}</style>
             <main className={mainStyle.main}>
-                <div className={styles.cover}>
-                    <div className={styles.background}>
+                <div className={ "cover"}>
+                    <div className={"background"}>
                         <div className={`${styles.container} ${lang == 'en' ? styles.en : ''}`}>
                             {
                                 lang == 'ar' ?

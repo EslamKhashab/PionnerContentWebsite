@@ -151,7 +151,7 @@ function Nav({ burgerVisability, setBurgerVisability, contact, navData, social, 
                                     <div className={navStyles.NavList}>
                                         {
                                             listItem.cities.map(item => (
-                                                <a href={`/projects/${listItem.propertyUrl}/${item.name.replace(' ', '-')}`} key={item.id}>
+                                                <a href={`/projects/${listItem.propertyUrl}/${item.cityUrl}`} key={item.id}>
                                                     <div className={navStyles.NavListItem} key={item.id}>{item.name}</div>
                                                 </a>
                                             ))
