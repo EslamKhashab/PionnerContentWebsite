@@ -11,7 +11,12 @@ const blogsListing = ({lang}) => {
     // const [totalCount, setTotalCount] = useState(1);
     const [page, setPage] = useState(1);
     const router = useRouter();
-    const tagUrl= decodeURI(router.asPath.split('?')[1].split('=')[1]).replaceAll('-',' ');
+    const tagUrl=null;
+    if (router.asPath.split('?')[1] != null) {
+        
+    tagUrl= decodeURI(router.asPath.split('?')[1].split('=')[1]).replaceAll('-',' ')
+}
+
     useEffect(() => {
         async function loadData() {
             
@@ -33,7 +38,7 @@ const blogsListing = ({lang}) => {
                 body:
                     JSON.stringify({
                         pageNumber: page,
-                        pageSize: 2
+                        pageSize: 15
                     })
             })
             const blogs = await listBlogHome.json()
@@ -109,7 +114,7 @@ src="https://www.facebook.com/tr?id=806077823314147&ev=PageView&noscript=1"
                                 data.totalcount > 1 ?
                                     <div className={`${commonStyles.swipContainer} ${lang == 'en' ? commonStyles.en : ''}`}>
                                         {
-                                             data.paginationCount != 2 ?
+                                             data.paginationCount != 15 ?
                                                 <div className={commonStyles.left}>
                                                     <svg viewBox="0 0 20 20" fill="none">
                                                         <path d="M11.0775 5.24417L6.32167 10L11.0775 14.7558L12.2558 13.5775L8.67833 10L12.2558 6.4225L11.0775 5.24417Z" fill="white" />

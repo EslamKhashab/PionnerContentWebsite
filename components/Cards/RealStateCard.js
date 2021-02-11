@@ -16,7 +16,7 @@ export default function RealStateCard({ project, lang }) {
         <>
             <div className={`${styles.RealeStateCard} blogsProjectsListingItem`}>
                 <div className={styles.RealeStateInfo}>
-                    <Link href={`/project/${project.url}`} target="_blank">
+                    <a href={`/project/${project.url}`} target="_blank">
                         <a>
                             <div className={` ${styles.RealeStateWrapper} blogsProjectsListingItemWrapper`}>
                                 <div className={styles.imageBg + " imageBg"}>
@@ -32,13 +32,13 @@ export default function RealStateCard({ project, lang }) {
                                 <h4 className={`${styles.minPrice} ${styles.en}`}>Prices start from {project.price ? chunk(project.price,3) : ''}</h4>
                             }
                         </a>
-                    </Link>
+                    </a>
                     <div className={styles.RealeStateTag}>
-                        <Link href={`/projects/${project.propertyUrl}/${project.cityName.replace(' ', '-')}`}>
+                        <a href={`/projects/${project.propertyUrl}/${project.cityName.replace(' ', '-')}`}>
                             <a>
                                 <h3 className={styles.RealeStateCity}><span>{project.cityName}</span></h3>
                             </a>
-                        </Link>
+                        </a>
                     </div>
                     <style jsx>{`
               .imageBg{
